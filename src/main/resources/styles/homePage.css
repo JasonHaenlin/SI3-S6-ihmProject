@@ -1,0 +1,27 @@
+#declarationLabel {
+    -fx-text-fill: #E73525;
+}
+
+.button {
+    -fx-border-color: #000000;
+}
+
+.label {
+    -fx-font-family: "Source Sans Pro";
+}
+
+#declarationButton {
+    -fx-background-image: url(plus.png);
+}
+
+#visuLabel {
+    -fx-text-fill: #0073BF;
+}
+
+#visuButton {
+    -fx-background-image: url(table-grid.png);
+}
+
+#vbox {
+    -fx-background-color: #ffffff;
+}

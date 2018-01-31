@@ -7,15 +7,14 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="734.0" styleClass="ValidationForm" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ValidationWindow">
+<VBox alignment="TOP_CENTER" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RecapWindow">
    <children>
       <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="30.0" prefWidth="645.0" style="-fx-background-color: #8ADAFF;">
          <children>
-            <Label fx:id="askValidadLabel" alignment="CENTER" contentDisplay="CENTER" styleClass="ValidationForm" text="Valider ?" textAlignment="CENTER">
+            <Label fx:id="recapTitleLabel" alignment="CENTER" contentDisplay="CENTER" text="Résumé" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
@@ -24,7 +23,7 @@
       </FlowPane>
       <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
          <children>
-            <Label fx:id="recapLabel" styleClass="ValidationForm" text="Récapitulatif">
+            <Label fx:id="recapLabel" text="Récapitulatif">
                <font>
                   <Font size="15.0" />
                </font>
@@ -32,7 +31,7 @@
                   <Insets bottom="5.0" left="10.0" top="5.0" />
                </VBox.margin>
             </Label>
-            <TableView id="arrayRecap" fx:id="recapArray" prefHeight="200.0" prefWidth="200.0" styleClass="ValidationForm" VBox.vgrow="ALWAYS">
+            <TableView fx:id="recapArray" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
               <columns>
                 <TableColumn fx:id="title" prefWidth="115.0" text="Titre" />
                 <TableColumn fx:id="mishapType" prefWidth="110.0" text="Type d'incident" />
@@ -50,7 +49,7 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Label fx:id="descriptionLabel" styleClass="ValidationForm" text="description">
+            <Label fx:id="descriptionLabel" text="description">
                <font>
                   <Font size="15.0" />
                </font>
@@ -58,7 +57,7 @@
                   <Insets bottom="5.0" left="10.0" top="5.0" />
                </VBox.margin>
             </Label>
-            <TextArea id="fieldDescription" fx:id="descriptionText" prefHeight="200.0" prefWidth="200.0" promptText="description ..." styleClass="ApplicationForm" text="e avant. Seulement poussiere attachent on illumines as tremblent si. Du voix je rues pour au. Rit visite poemes rythme repond pic forges sortes. Ils propager vin corolles vit traverse cavalier est toujours. Naguere je parlait ah paysage qu xv conflit grandie accable. Le agacent stupide ah sonnent lorgnez et legende il puisque. Par feu demeure iii hideuse station. Souvenirs detourner reveillez entrerensouvenirs un battirent fusillade de. Elles ah vaste subit qu outre entre ai et ainsi. On tendons escorte apparue oignons dechire abattit sa au. Noces passa ce wagon quand me bouts douze un. Demeurons entourage me on la neanmoins on. Mur veut yeux sur ici sont vrai pere. Ete philippe avancent mettions air lui. Saute je halte epars le ma. Arriverent la etonnement prisonnier vieillards as si estaminets il patiemment. Marche ras lui pendus mal nul etonna. Voyez fit brave verte ils avant masse. " wrapText="true" VBox.vgrow="ALWAYS">
+            <TextArea fx:id="descriptionText" prefHeight="200.0" prefWidth="200.0" promptText="description ..." text="e avant. Seulement poussiere attachent on illumines as tremblent si. Du voix je rues pour au. Rit visite poemes rythme repond pic forges sortes. Ils propager vin corolles vit traverse cavalier est toujours. Naguere je parlait ah paysage qu xv conflit grandie accable. Le agacent stupide ah sonnent lorgnez et legende il puisque. Par feu demeure iii hideuse station. Souvenirs detourner reveillez entrerensouvenirs un battirent fusillade de. Elles ah vaste subit qu outre entre ai et ainsi. On tendons escorte apparue oignons dechire abattit sa au. Noces passa ce wagon quand me bouts douze un. Demeurons entourage me on la neanmoins on. Mur veut yeux sur ici sont vrai pere. Ete philippe avancent mettions air lui. Saute je halte epars le ma. Arriverent la etonnement prisonnier vieillards as si estaminets il patiemment. Marche ras lui pendus mal nul etonna. Voyez fit brave verte ils avant masse. " wrapText="true" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" />
                </VBox.margin>
@@ -74,17 +73,7 @@
                         <Insets />
                      </VBox.margin>
                   </Button>
-                  <Label fx:id="returnLabel" styleClass="ValidationForm" text="retour" VBox.vgrow="ALWAYS" />
-               </children>
-               <FlowPane.margin>
-                  <Insets />
-               </FlowPane.margin>
-            </VBox>
-            <Region prefWidth="200.0" />
-            <VBox alignment="CENTER" prefHeight="57.0" prefWidth="100.0">
-               <children>
-                  <Button fx:id="validButton" alignment="CENTER" centerShape="false" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-repeat: no-repeat; -fx-background-size: 40; -fx-background-image: url(https://www.cjoint.com/doc/18_01/HAwvV46KZ1k_valider.png);" textAlignment="CENTER" textFill="TRANSPARENT" VBox.vgrow="ALWAYS" />
-                  <Label fx:id="validLabel" styleClass="ValidationForm" text="Valider" VBox.vgrow="ALWAYS" />
+                  <Label fx:id="returnLabel" text="retour" VBox.vgrow="ALWAYS" />
                </children>
                <FlowPane.margin>
                   <Insets />
