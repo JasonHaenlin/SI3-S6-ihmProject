@@ -21,7 +21,7 @@ public class MainApp extends Application {
 
         log.info("Starting Hello JavaFX and Maven demonstration application");
 
-        String fxmlFile = "/fxml/...";
+        String fxmlFile = "/fxml/freyja-homePage.fxml";
         log.debug("Loading FXML for main view from: {}", fxmlFile);
         FXMLLoader loader = new FXMLLoader();
         Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
@@ -29,6 +29,7 @@ public class MainApp extends Application {
         log.debug("Showing JFX scene");
         Scene scene = new Scene(rootNode, 600, 400);
 
+        scene.getStylesheets().add("/styles/homePage.css");
         stage.setTitle("Hello JavaFX and Maven");
         stage.setScene(scene);
         stage.show();

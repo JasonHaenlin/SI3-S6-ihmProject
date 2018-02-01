@@ -18,8 +18,8 @@
          <children>
             <VBox fx:id="lastName" fillWidth="false" prefWidth="130.0">
                <children>
-                  <Label fx:id="nameLabel" text="Nom" />
-                  <TextField fx:id="nameLabel" promptText="nom...." />
+                  <Label id="label" fx:id="nameLabel" styleClass="ApplicationForm" text="Nom" />
+                  <TextField id="TextField" fx:id="nameLabel" promptText="nom...." styleClass="ApplicationForm" />
                </children>
                <FlowPane.margin>
                   <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
@@ -27,8 +27,8 @@
             </VBox>
             <VBox fx:id="firstName" prefWidth="130.0">
                <children>
-                  <Label fx:id="firstNameLabel" text="Prénom" />
-                  <TextField fx:id="firstNameLabel" promptText="prénom..." />
+                  <Label id="label" fx:id="firstNameLabel" styleClass="ApplicationForm" text="Prénom" />
+                  <TextField id="TextField" fx:id="firstNameLabel" promptText="prénom..." styleClass="ApplicationForm" />
                </children>
                <FlowPane.margin>
                   <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
@@ -36,8 +36,8 @@
             </VBox>
             <VBox fx:id="occupation" prefWidth="130.0">
                <children>
-                  <Label fx:id="occupationLabel" text="Profession" />
-                  <ComboBox fx:id="occupationComboBox" prefWidth="150.0" promptText="choisir...." />
+                  <Label id="label" fx:id="occupationLabel" styleClass="ApplicationForm" text="Profession" />
+                  <ComboBox id="TextField" fx:id="occupationComboBox" prefWidth="150.0" promptText="choisir...." styleClass="ApplicationForm" />
                </children>
                <FlowPane.margin>
                   <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
@@ -45,8 +45,8 @@
             </VBox>
             <VBox fx:id="mishapType" prefWidth="130.0">
                <children>
-                  <Label fx:id="mishapTypeLabel" text="Type d'incident" />
-                  <ComboBox fx:id="mishapTypeComboBox" prefWidth="150.0" promptText="choisir..." />
+                  <Label id="label" fx:id="mishapTypeLabel" styleClass="ApplicationForm" text="Type d'incident" />
+                  <ComboBox id="TextField" fx:id="mishapTypeComboBox" prefWidth="150.0" promptText="choisir..." styleClass="ApplicationForm" />
                </children>
                <FlowPane.margin>
                   <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
@@ -54,8 +54,8 @@
             </VBox>
             <VBox fx:id="mishapTitle" prefHeight="42.0" prefWidth="408.0">
                <children>
-                  <Label fx:id="mishapTitlelabel" text="Objet de l'incident" />
-                  <TextField fx:id="mishapTitleText" promptText="objet..." />
+                  <Label id="label" fx:id="mishapTitlelabel" styleClass="ApplicationForm" text="Objet de l'incident" />
+                  <TextField id="TextField" fx:id="mishapTitleText" promptText="objet..." styleClass="ApplicationForm" />
                </children>
                <FlowPane.margin>
                   <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
@@ -63,8 +63,8 @@
             </VBox>
             <VBox fx:id="date" prefWidth="150.0">
                <children>
-                  <Label fx:id="dateLabel" text="Date" />
-                  <DatePicker fx:id="dateSelect" />
+                  <Label id="label" fx:id="dateLabel" styleClass="ApplicationForm" text="Date" />
+                  <DatePicker id="TextField" fx:id="dateSelect" styleClass="ApplicationForm" />
                </children>
                <FlowPane.margin>
                   <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
@@ -76,12 +76,12 @@
          <children>
             <VBox fx:id="description" prefHeight="145.0" prefWidth="600.0">
                <children>
-                  <Label fx:id="descriptionLabel" text="Description de l'incident">
+                  <Label id="label" fx:id="descriptionLabel" styleClass="ApplicationForm" text="Description de l'incident">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="descriptionText" alignment="TOP_LEFT" prefHeight="117.0" prefWidth="580.0" promptText="description...">
+                  <TextField id="TextField" fx:id="descriptionText" alignment="TOP_LEFT" prefHeight="117.0" prefWidth="580.0" promptText="description..." styleClass="ApplicationForm">
                      <VBox.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </VBox.margin>
@@ -94,8 +94,8 @@
          <children>
             <VBox fx:id="mishapGravity">
                <children>
-                  <Label fx:id="gravityLabel" text="Gravité de l'incident" />
-                  <ComboBox fx:id="gravityComboBox" prefWidth="150.0" />
+                  <Label id="label" fx:id="gravityLabel" styleClass="ApplicationForm" text="Gravité de l'incident" />
+                  <ComboBox id="TextField" fx:id="gravityComboBox" prefWidth="150.0" styleClass="ApplicationForm" />
                </children>
                <FlowPane.margin>
                   <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
@@ -103,7 +103,7 @@
             </VBox>
             <VBox fx:id="localisation">
                <children>
-                  <Label fx:id="locationLabel" text="Lovalisation">
+                  <Label id="label" fx:id="locationLabel" styleClass="ApplicationForm" text="Lovalisation">
                      <VBox.margin>
                         <Insets left="10.0" />
                      </VBox.margin>
@@ -113,12 +113,12 @@
                   </Label>
                   <HBox>
                      <children>
-                        <Label fx:id="buildingLabel" text="Bâtiment">
+                        <Label id="label" fx:id="buildingLabel" styleClass="ApplicationForm" text="Bâtiment">
                            <HBox.margin>
                               <Insets bottom="2.0" left="10.0" right="10.0" top="3.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="buildingText" alignment="TOP_LEFT">
+                        <TextField id="TextField" fx:id="buildingText" alignment="TOP_LEFT" styleClass="ApplicationForm">
                            <HBox.margin>
                               <Insets bottom="2.0" left="10.0" right="10.0" top="3.0" />
                            </HBox.margin>
@@ -127,12 +127,12 @@
                   </HBox>
                   <HBox>
                      <children>
-                        <Label fx:id="roomLabel" text="salle">
+                        <Label id="label" fx:id="roomLabel" styleClass="ApplicationForm" text="salle">
                            <HBox.margin>
                               <Insets bottom="2.0" left="10.0" right="10.0" top="3.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="roomText">
+                        <TextField id="TextField" fx:id="roomText" styleClass="ApplicationForm">
                            <HBox.margin>
                               <Insets bottom="2.0" left="10.0" right="10.0" top="3.0" />
                            </HBox.margin>
@@ -141,12 +141,12 @@
                   </HBox>
                   <HBox>
                      <children>
-                        <Label fx:id="detailLabel" text="détails">
+                        <Label id="label" fx:id="detailLabel" styleClass="ApplicationForm" text="détails">
                            <HBox.margin>
                               <Insets bottom="2.0" left="10.0" right="10.0" top="3.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="detailText">
+                        <TextField id="TextField" fx:id="detailText" styleClass="ApplicationForm">
                            <HBox.margin>
                               <Insets bottom="2.0" left="10.0" right="10.0" top="3.0" />
                            </HBox.margin>
@@ -164,19 +164,19 @@
          <children>
             <VBox alignment="CENTER" prefHeight="58.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="returnButton" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-size: 40; -fx-background-image: url(https://www.cjoint.com/doc/18_01/HAwvUOf0fzk_retour.png); -fx-background-repeat: no-repeat;" textFill="TRANSPARENT" VBox.vgrow="ALWAYS">
+                  <Button id="returnButton" fx:id="returnButton" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-size: 40; -fx-background-image: url(https://www.cjoint.com/doc/18_01/HAwvUOf0fzk_retour.png); -fx-background-repeat: no-repeat;" styleClass="ApplicationForm" textFill="TRANSPARENT" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                   </Button>
-                  <Label fx:id="returnLabel" text="retour" VBox.vgrow="ALWAYS" />
+                  <Label id="label" fx:id="returnLabel" styleClass="ApplicationForm" text="retour" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
             <Region prefWidth="200.0" />
             <VBox alignment="CENTER" prefHeight="57.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="validButton" alignment="CENTER" centerShape="false" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-repeat: no-repeat; -fx-background-size: 40; -fx-background-image: url(https://www.cjoint.com/doc/18_01/HAwvV46KZ1k_valider.png);" textAlignment="CENTER" textFill="TRANSPARENT" VBox.vgrow="ALWAYS" />
-                  <Label fx:id="validLabel" text="Valider" VBox.vgrow="ALWAYS" />
+                  <Button id="validButton" fx:id="validButton" alignment="CENTER" centerShape="false" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-repeat: no-repeat; -fx-background-size: 40; -fx-background-image: url(https://www.cjoint.com/doc/18_01/HAwvV46KZ1k_valider.png);" styleClass="ApplicationForm" textAlignment="CENTER" textFill="TRANSPARENT" VBox.vgrow="ALWAYS" />
+                  <Label id="label" fx:id="validLabel" styleClass="ApplicationForm" text="Valider" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
          </children>
