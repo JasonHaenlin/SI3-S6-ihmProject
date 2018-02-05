@@ -12,33 +12,44 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
-public class FormulaireController
-{
-    private static final Logger log = LoggerFactory.getLogger(FormulaireController.class);
-
-    @FXML private TextField nomField;
-    @FXML private TextField prenomField;
-    @FXML private TextField detailsField;
-    @FXML private TextField titreField;
-    @FXML private TextArea descriptionField;
-	@FXML private ComboBox posteAnneeDropdown;
-	@FXML private DatePicker dateField;
-	@FXML private ComboBox importanceDropdown;
-	@FXML private TextField salleField;
-	@FXML private TextField batimentField;
-	@FXML private Button validButton;
-	@FXML private Button retourButton;
+public class FormulaireController {
+	private static final Logger log = LoggerFactory.getLogger(FormulaireController.class);
 
 	@FXML
-	public void initialize(){
+	private TextField nomField;
+	@FXML
+	private TextField prenomField;
+	@FXML
+	private TextField detailsField;
+	@FXML
+	private TextField titreField;
+	@FXML
+	private TextArea descriptionField;
+	@FXML
+	private ComboBox posteAnneeDropdown;
+	@FXML
+	private DatePicker dateField;
+	@FXML
+	private ComboBox importanceDropdown;
+	@FXML
+	private TextField salleField;
+	@FXML
+	private TextField batimentField;
+	@FXML
+	private Button validButton;
+	@FXML
+	private Button retourButton;
 
-		validButton.setOnMouseClicked(event ->{
-			if ( event.getButton()== MouseButton.PRIMARY) {
+	@FXML
+	public void initialize() {
 
-				String fxmlFile = "/fxml/freyja-homePage.fxml";
+		validButton.setOnMouseClicked(event -> {
+			if (event.getButton() == MouseButton.PRIMARY) {
+
+				String fxmlFile = "/fxml/askValidation.fxml";
 				FXMLLoader loader = new FXMLLoader();
 				try {
-					Stage stage=(Stage) validButton.getScene().getWindow();
+					Stage stage = (Stage) validButton.getScene().getWindow();
 					Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
 
 					Scene scene = new Scene(rootNode);
@@ -50,13 +61,13 @@ public class FormulaireController
 			}
 		});
 
-		retourButton.setOnMouseClicked(event ->{
-			if ( event.getButton()== MouseButton.PRIMARY) {
+		retourButton.setOnMouseClicked(event -> {
+			if (event.getButton() == MouseButton.PRIMARY) {
 
 				String fxmlFile = "/fxml/freyja-homePage.fxml";
 				FXMLLoader loader = new FXMLLoader();
 				try {
-					Stage stage=(Stage) retourButton.getScene().getWindow();
+					Stage stage = (Stage) retourButton.getScene().getWindow();
 					Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
 
 					Scene scene = new Scene(rootNode);
@@ -67,23 +78,22 @@ public class FormulaireController
 				}
 			}
 		});
-
 
 	}
 
 	public void submitForm() {
-       String nom = nomField.getText();
-       String prenom = prenomField.getText();
-       String details = detailsField.getText();
-       String titre = titreField.getText();
-       String description = descriptionField.getText();
-       String salle = salleField.getText();
-       String batiment = batimentField.getText();
+		String nom = nomField.getText();
+		String prenom = prenomField.getText();
+		String details = detailsField.getText();
+		String titre = titreField.getText();
+		String description = descriptionField.getText();
+		String salle = salleField.getText();
+		String batiment = batimentField.getText();
 
-       StringBuilder builder = new StringBuilder();
-    }
+		StringBuilder builder = new StringBuilder();
+	}
 
-    public void changeView(){
-    }
+	public void changeView() {
+	}
 
 }
