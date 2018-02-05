@@ -58,7 +58,7 @@
                   <Insets bottom="5.0" left="10.0" top="5.0" />
                </VBox.margin>
             </Label>
-            <TextArea id="fieldDescription" fx:id="descriptionText" prefHeight="200.0" prefWidth="200.0" promptText="description ..." styleClass="ApplicationForm" text="e avant. Seulement poussiere attachent on illumines as tremblent si. Du voix je rues pour au. Rit visite poemes rythme repond pic forges sortes. Ils propager vin corolles vit traverse cavalier est toujours. Naguere je parlait ah paysage qu xv conflit grandie accable. Le agacent stupide ah sonnent lorgnez et legende il puisque. Par feu demeure iii hideuse station. Souvenirs detourner reveillez entrerensouvenirs un battirent fusillade de. Elles ah vaste subit qu outre entre ai et ainsi. On tendons escorte apparue oignons dechire abattit sa au. Noces passa ce wagon quand me bouts douze un. Demeurons entourage me on la neanmoins on. Mur veut yeux sur ici sont vrai pere. Ete philippe avancent mettions air lui. Saute je halte epars le ma. Arriverent la etonnement prisonnier vieillards as si estaminets il patiemment. Marche ras lui pendus mal nul etonna. Voyez fit brave verte ils avant masse. " wrapText="true" VBox.vgrow="ALWAYS">
+            <TextArea id="fieldDescription" fx:id="descriptionText" prefHeight="200.0" prefWidth="200.0" promptText="description ..." styleClass="ApplicationForm" wrapText="true" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" />
                </VBox.margin>
