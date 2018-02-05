@@ -8,6 +8,7 @@ import javafx.beans.property.StringProperty;
  **/
 public enum PosteAnnee {
 
+    //@formatter:off
     TECHNICIEN_DE_SURFACE("Technicien de surface"),
     PROFESSEUR("Professeur"),
     STAGIAIRE("Stagiaire"),
@@ -18,6 +19,7 @@ public enum PosteAnnee {
     CINQUIEME_ANNEE("5ème Année"),
     VISITEUR("Visiteur"),
     AUTRE("Autre");
+    //@formatter:on
 
     private final StringProperty posteannee;
 

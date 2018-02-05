@@ -8,10 +8,12 @@ import javafx.beans.property.StringProperty;
  **/
 public enum Importance {
 
-    FAIBLE("Faible"),
-    MODEREE("Moderée"),
-    GRAVE("Grave"),
+    //@formatter:off
+    FAIBLE("Faible"), 
+    MODEREE("Moderée"), 
+    GRAVE("Grave"), 
     CRITIQUE("Critique");
+    //@formatter:on
 
     private final StringProperty importance;
 
@@ -23,6 +25,5 @@ public enum Importance {
     public String toString() {
         return importance.getValue();
     }
-
 
 }

@@ -8,6 +8,7 @@ import javafx.beans.property.StringProperty;
  **/
 public enum Type {
 
+    //@formatter:off
     ELEC("Problème électrique"),
     MAT("Problème matériel"),
     OBJP("Objet perdu"),
@@ -18,7 +19,7 @@ public enum Type {
     CAR("Problème parking"),
     SALLE("Conflit salle"),
     AUTRE("Autre");
-
+    //@formatter:on
 
     private final StringProperty type;
 
