@@ -21,6 +21,8 @@ public enum Importance {
 
     @Override
     public String toString() {
-        return importance.toString();
+        return importance.getValue();
     }
+
+
 }

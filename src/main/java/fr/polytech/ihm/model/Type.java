@@ -28,6 +28,6 @@ public enum Type {
 
     @Override
     public String toString() {
-        return type.toString();
+        return type.getValue();
     }
 }

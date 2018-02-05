@@ -27,7 +27,7 @@ public enum PosteAnnee {
 
     @Override
     public String toString() {
-        return posteannee.toString();
+        return posteannee.getValue();
     }
 
 }

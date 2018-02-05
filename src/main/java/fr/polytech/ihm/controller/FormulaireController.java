@@ -1,17 +1,24 @@
 package fr.polytech.ihm.controller;
 
+import fr.polytech.ihm.model.Importance;
+import fr.polytech.ihm.model.PosteAnnee;
+import fr.polytech.ihm.model.Type;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
+import javafx.util.Callback;
+import javafx.util.StringConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Arrays;
 
 public class FormulaireController {
 	private static final Logger log = LoggerFactory.getLogger(FormulaireController.class);
@@ -25,24 +32,39 @@ public class FormulaireController {
 	@FXML
 	private TextField titreField;
 	@FXML
-	private TextArea descriptionField;
-	@FXML
-	private ComboBox posteAnneeDropdown;
-	@FXML
-	private DatePicker dateField;
-	@FXML
-	private ComboBox importanceDropdown;
-	@FXML
 	private TextField salleField;
 	@FXML
 	private TextField batimentField;
+
+
+	@FXML
+	private TextArea descriptionField;
+
+	@FXML
+	private DatePicker dateField;
+
 	@FXML
 	private Button validButton;
 	@FXML
 	private Button retourButton;
 
 	@FXML
+	private ComboBox posteAnneeDropdown;
+	@FXML
+	private ComboBox typeDropdown;
+	@FXML
+	private ComboBox importanceDropdown;
+
+
+	@FXML
 	public void initialize() {
+
+
+		posteAnneeDropdown.getItems().setAll(PosteAnnee.values());
+		typeDropdown.getItems().setAll(Type.values());
+		importanceDropdown.getItems().setAll(Importance.values());
+
+
 
 		validButton.setOnMouseClicked(event -> {
 			if (event.getButton() == MouseButton.PRIMARY) {
@@ -93,6 +115,7 @@ public class FormulaireController {
 		String batiment = batimentField.getText();
 		String posteAnnee = posteAnneeDropdown.getValue().toString();
 		String importance = importanceDropdown.getValue().toString();
+		String type = typeDropdown.getValue().toString();
 		LocalDate date = dateField.getValue();
 
 
