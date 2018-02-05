@@ -29,7 +29,6 @@ public class MainApp extends Application {
         log.debug("Showing JFX scene");
         Scene scene = new Scene(rootNode, 600, 400);
 
-        scene.getStylesheets().add("/styles/homePage.css");
         stage.setTitle("Hello JavaFX and Maven");
         stage.setScene(scene);
         stage.show();
