@@ -86,5 +86,22 @@ public class ValidationWindow {
                 }
             }
         });
+        returnButton.setOnMouseClicked(event -> {
+            if (event.getButton() == MouseButton.PRIMARY) {
+
+                String fxmlFile = "/fxml/formulaireIncident.fxml";
+                FXMLLoader loader = new FXMLLoader();
+                try {
+                    Stage stage = (Stage) returnButton.getScene().getWindow();
+                    Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
+
+                    Scene scene = new Scene(rootNode);
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

@@ -27,7 +27,7 @@ public class MainApp extends Application {
         Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
 
         log.debug("Showing JFX scene");
-        Scene scene = new Scene(rootNode, 600, 400);
+        Scene scene = new Scene(rootNode, 735, 465);
 
         stage.setTitle("Bienvenue sur Freyja - Gestion d'incidents pour Polytech");
         stage.setScene(scene);
