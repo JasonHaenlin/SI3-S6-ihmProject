@@ -30,7 +30,7 @@ public class HomePage {
 
 	@FXML
 	public void initialize(){
-		/*
+
 		declarationButton.setOnMouseClicked(event ->{
 			if ( event.getButton()== MouseButton.PRIMARY) {
 
@@ -42,14 +42,13 @@ public class HomePage {
 
 					Scene scene = new Scene(rootNode);
 					stage.setScene(scene);
-					//((DepartmentController)loader.getController()).initDepartement(clickedRow);
 					stage.show();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
 		});
-		*/
+
 	}
 
 }
