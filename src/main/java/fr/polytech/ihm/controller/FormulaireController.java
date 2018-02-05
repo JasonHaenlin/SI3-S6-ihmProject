@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class FormulaireController
 {
@@ -38,6 +39,7 @@ public class FormulaireController
 				String fxmlFile = "/fxml/freyja-homePage.fxml";
 				FXMLLoader loader = new FXMLLoader();
 				try {
+					System.out.println(dateField.getChronology());
 					Stage stage=(Stage) validButton.getScene().getWindow();
 					Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
 
@@ -68,19 +70,22 @@ public class FormulaireController
 			}
 		});
 
-
 	}
 
 	public void submitForm() {
-       String nom = nomField.getText();
-       String prenom = prenomField.getText();
-       String details = detailsField.getText();
-       String titre = titreField.getText();
-       String description = descriptionField.getText();
-       String salle = salleField.getText();
-       String batiment = batimentField.getText();
+		String nom = nomField.getText();
+		String prenom = prenomField.getText();
+		String details = detailsField.getText();
+		String titre = titreField.getText();
+		String description = descriptionField.getText();
+		String salle = salleField.getText();
+		String batiment = batimentField.getText();
+		String posteAnnee = posteAnneeDropdown.getPromptText();
+		LocalDate date = dateField.getValue();
 
-       StringBuilder builder = new StringBuilder();
+
+
+		StringBuilder builder = new StringBuilder();
     }
 
     public void changeView(){
