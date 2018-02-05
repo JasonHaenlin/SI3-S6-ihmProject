@@ -68,9 +68,11 @@
             <ComboBox fx:id="posteAnneeDropdown" prefHeight="22.0" prefWidth="173.0" promptText="Poste/Année" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <items>
                   <FXCollections fx:factory="observableArrayList">
-                     <String fx:value="Apple" />
-                     <String fx:value="Orange" />
-                     <String fx:value="Pear" />
+                     <String fx:value="SI3" />
+                     <String fx:value="SI4" />
+                     <String fx:value="SI5" />
+                     <String fx:value="Professeur" />
+                     <String fx:value="Autre" />
                   </FXCollections>
                </items>
                <GridPane.margin>
@@ -83,6 +85,14 @@
                </GridPane.margin>
             </DatePicker>
             <ComboBox fx:id="importanceDropdown" prefHeight="25.0" prefWidth="174.0" promptText="Importance de l'incident" GridPane.columnSpan="2" GridPane.rowIndex="8">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Faible" />
+                     <String fx:value="Modéré" />
+                     <String fx:value="Grave" />
+                     <String fx:value="Critique" />
+                  </FXCollections>
+               </items>
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>
@@ -156,6 +166,15 @@
                </GridPane.margin>
             </Text>
             <ComboBox fx:id="typeDropdown" prefHeight="25.0" prefWidth="150.0" promptText="Type incident" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Objet perdu" />
+                     <String fx:value="Objet cassé" />
+                     <String fx:value="Problème emploi du temps" />
+                     <String fx:value="Grève" />
+                     <String fx:value="Autre" />
+                  </FXCollections>
+               </items>
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>
