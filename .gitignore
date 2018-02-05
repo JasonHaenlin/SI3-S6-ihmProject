@@ -1,4 +1,6 @@
-*.class
+target/
+
+*.iml
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -15,3 +17,6 @@ hs_err_pid*
 .settings/org.eclipse.jdt.core.prefs
 .settings/org.eclipse.m2e.core.prefs
 .vscode/
+
+.idea/
+
