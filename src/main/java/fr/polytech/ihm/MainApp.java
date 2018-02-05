@@ -1,13 +1,13 @@
 package fr.polytech.ihm;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MainApp extends Application {
 
@@ -29,8 +29,9 @@ public class MainApp extends Application {
         log.debug("Showing JFX scene");
         Scene scene = new Scene(rootNode, 600, 400);
 
-        stage.setTitle("Hello JavaFX and Maven");
+        stage.setTitle("Bienvenue sur Freyja - Gestion d'incidents pour Polytech");
         stage.setScene(scene);
+        stage.getIcons().add(new Image("/images/logo.png"));
         stage.show();
     }
 }
