@@ -50,12 +50,8 @@ public class FormulaireController {
 				String fxmlFile = "/fxml/askValidation.fxml";
 				FXMLLoader loader = new FXMLLoader();
 				try {
-<<<<<<< HEAD
-					Stage stage = (Stage) validButton.getScene().getWindow();
-=======
 					System.out.println(dateField.getChronology());
 					Stage stage=(Stage) validButton.getScene().getWindow();
->>>>>>> aa545b70677723c2a4c57e89a52421ef8e7e1351
 					Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
 
 					Scene scene = new Scene(rootNode);
@@ -95,15 +91,8 @@ public class FormulaireController {
 		String description = descriptionField.getText();
 		String salle = salleField.getText();
 		String batiment = batimentField.getText();
-<<<<<<< HEAD
-
-		StringBuilder builder = new StringBuilder();
-	}
-
-	public void changeView() {
-	}
-=======
-		String posteAnnee = posteAnneeDropdown.getPromptText();
+		String posteAnnee = posteAnneeDropdown.getValue().toString();
+		String importance = importanceDropdown.getValue().toString();
 		LocalDate date = dateField.getValue();
 
 
@@ -113,6 +102,5 @@ public class FormulaireController {
 
     public void changeView(){
     }
->>>>>>> aa545b70677723c2a4c57e89a52421ef8e7e1351
 
 }
