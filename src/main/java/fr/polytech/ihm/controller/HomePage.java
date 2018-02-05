@@ -28,27 +28,27 @@ public class HomePage {
     @FXML // fx:id="visuLabel"
     private Label visuLabel; // Value injected by FXMLLoader
 
-	@FXML
-	public void initialize(){
+    @FXML
+    public void initialize() {
 
-		declarationButton.setOnMouseClicked(event ->{
-			if ( event.getButton()== MouseButton.PRIMARY) {
+        declarationButton.setOnMouseClicked(event -> {
+            if (event.getButton() == MouseButton.PRIMARY) {
 
-				String fxmlFile = "/fxml/formulaireIncident.fxml";
-				FXMLLoader loader = new FXMLLoader();
-				try {
-					Stage stage=(Stage) declarationButton.getScene().getWindow();
-					Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
+                String fxmlFile = "/fxml/formulaireIncident.fxml";
+                FXMLLoader loader = new FXMLLoader();
+                try {
+                    Stage stage = (Stage) declarationButton.getScene().getWindow();
+                    Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
 
-					Scene scene = new Scene(rootNode);
-					stage.setScene(scene);
-					stage.show();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		});
+                    Scene scene = new Scene(rootNode);
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
-	}
+    }
 
 }
