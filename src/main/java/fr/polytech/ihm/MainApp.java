@@ -19,14 +19,14 @@ public class MainApp extends Application {
 
     public void start(Stage stage) throws Exception {
 
-        log.info("Starting Hello JavaFX and Maven demonstration application");
+        log.info("Starting Freyja application");
 
         String fxmlFile = "/fxml/freyja-homePage.fxml";
         log.debug("Loading FXML for main view from: {}", fxmlFile);
         FXMLLoader loader = new FXMLLoader();
         Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
 
-        log.debug("Showing JFX scene");
+        log.debug("Showing Home Page scene");
         Scene scene = new Scene(rootNode, 735, 465);
 
         stage.setTitle("Bienvenue sur Freyja - Gestion d'incidents pour Polytech");

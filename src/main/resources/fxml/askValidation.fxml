@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<VBox alignment="TOP_CENTER" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="735.0" styleClass="ValidationForm" stylesheets="styles/askValidation.css" 
+<VBox alignment="TOP_CENTER" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="735.0" styleClass="ValidationForm" stylesheets="/styles/askValidation.css"
   xmlns="http://javafx.com/javafx/9.0.1" 
   xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.ValidationWindow">
   <children>

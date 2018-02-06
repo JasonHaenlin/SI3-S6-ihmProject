@@ -1,9 +1,9 @@
 #returnButton {
-    -fx-background-image: url(../images/return.png);
+    -fx-background-image: url(/images/return.png);
 }
 
 #validButton {
-    -fx-background-image: url(../images/valider.png);
+    -fx-background-image: url(/images/valider.png);
 }
 
 .button {

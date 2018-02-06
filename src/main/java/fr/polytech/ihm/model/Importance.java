@@ -9,9 +9,9 @@ import javafx.beans.property.StringProperty;
 public enum Importance {
 
     //@formatter:off
-    FAIBLE("Faible"), 
-    MODEREE("Moderée"), 
-    GRAVE("Grave"), 
+    FAIBLE("Faible"),
+    MODEREE("Moderée"),
+    GRAVE("Grave"),
     CRITIQUE("Critique");
     //@formatter:on
 
