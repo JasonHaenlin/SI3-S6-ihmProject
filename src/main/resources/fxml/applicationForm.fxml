@@ -14,6 +14,15 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ApplicationForm">
    <children>
+      <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="30.0" prefWidth="645.0" style="-fx-background-color: #8ADAFF;" styleClass="titleBar">
+         <children>
+            <Label fx:id="askValidadLabel" alignment="CENTER" contentDisplay="CENTER" styleClass="ValidationForm" text="Déclaration d'un incident" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </FlowPane>
       <FlowPane prefHeight="115.0" prefWidth="600.0">
          <children>
             <VBox fx:id="lastName" fillWidth="false" prefWidth="130.0">
