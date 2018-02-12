@@ -1,13 +1,17 @@
 #returnButton {
-    -fx-background-image: url(/images/return.png);
+  -fx-background-image: url(/images/return.png);
 }
 
 #validButton {
-    -fx-background-image: url(/images/valider.png);
+  -fx-background-image: url(/images/valider.png);
 }
 
 .button {
-    -fx-background-size: 40px;
-    -fx-background-repeat: no-repeat;
+  -fx-background-size: 40px;
+  -fx-background-repeat: no-repeat;
 }
 
+.scale-up-hor-left {
+  -webkit-animation: scale-up-hor-left 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: scale-up-hor-left 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
