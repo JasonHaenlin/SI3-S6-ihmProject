@@ -137,6 +137,7 @@ public class FormulaireController {
                 FXMLLoader loader = new FXMLLoader();
                 log.debug("Validate input");
                 try {
+                    submitForm();
                     Stage stage = (Stage) validButton.getScene().getWindow();
                     Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
 
@@ -145,6 +146,8 @@ public class FormulaireController {
                     stage.show();
                 } catch (IOException e) {
                     e.printStackTrace();
+                } catch (NullPointerException e) {
+                    System.out.println("CHAMP EN ROUGE");
                 }
             }
         });
