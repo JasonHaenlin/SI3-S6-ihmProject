@@ -74,8 +74,10 @@ public class FormulaireController {
                     Scene scene = new Scene(rootNode);
                     stage.setScene(scene);
                     stage.show();
-                } catch (Exception e) {
+                } catch (IOException e) {
                     e.printStackTrace();
+                } catch (NullPointerException e) {
+                    System.out.println("CHAMP EN ROUGE");
                 }
             }
         });
@@ -101,7 +103,7 @@ public class FormulaireController {
 
     }
 
-    public void submitForm() {
+    public void submitForm() throws NullPointerException {
         StringProperty nom = new SimpleStringProperty(nomField.getText());
         StringProperty prenom = new SimpleStringProperty(prenomField.getText());
         StringProperty details = new SimpleStringProperty(detailsField.getText());
@@ -109,35 +111,11 @@ public class FormulaireController {
         StringProperty description = new SimpleStringProperty(descriptionField.getText());
         StringProperty salle = new SimpleStringProperty(salleField.getText());
         StringProperty batiment = new SimpleStringProperty(batimentField.getText());
-        StringProperty posteAnnee = null;
-        StringProperty importance = null;
-        StringProperty type = null;
-        try {
-            posteAnnee = new SimpleStringProperty(posteAnneeDropdown.getValue().toString());
-        } catch (NullPointerException e) {
-            System.out.println("PB ICI AFFICHER TRUC NON REMPLI");
-        }
-
-        try {
-            importance = new SimpleStringProperty(importanceDropdown.getValue().toString());
-        } catch (Exception e) {
-
-        }
-
-        try {
-            type = new SimpleStringProperty(typeDropdown.getValue().toString());
-        } catch (NullPointerException e) {
-        }
-
+        StringProperty posteAnnee = new SimpleStringProperty(posteAnneeDropdown.getValue().toString());
+        StringProperty importance = new SimpleStringProperty(importanceDropdown.getValue().toString());
+        StringProperty type = new SimpleStringProperty(typeDropdown.getValue().toString());
         LocalDate date = dateField.getValue();
-
-        StringProperty dateString = null;
-
-        try {
-            dateString = new SimpleStringProperty(date.toString());
-        } catch (NullPointerException e) {
-        }
-
+        StringProperty dateString = new SimpleStringProperty(date.toString());
         Incident incident = new Incident(nom, prenom, posteAnnee, type, titre, dateString, description, importance, batiment, salle, details);
         IncidentManager.addIncident(incident);
     }
