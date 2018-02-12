@@ -26,10 +26,10 @@ public class FormulaireController {
     private TextField prenomField;
 
     @FXML
-    private ComboBox<?> posteAnneeDropdown;
+    private ComboBox posteAnneeDropdown;
 
     @FXML
-    private ComboBox<?> typeDropdown;
+    private ComboBox typeDropdown;
 
     @FXML
     private TextField titreField;
@@ -41,7 +41,7 @@ public class FormulaireController {
     private TextField descriptionField;
 
     @FXML
-    private ComboBox<?> importanceDropdown;
+    private ComboBox importanceDropdown;
 
     @FXML
     private TextField batimentField;

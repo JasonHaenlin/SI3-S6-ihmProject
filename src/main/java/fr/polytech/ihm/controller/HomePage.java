@@ -41,7 +41,7 @@ public class HomePage {
         declarationButton.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) {
 
-                String fxmlFile = "/fxml/formulaireIncident.fxml";
+                String fxmlFile = "/fxml/applicationForm.fxml";
                 FXMLLoader loader = new FXMLLoader();
                 try {
                     Stage stage = (Stage) declarationButton.getScene().getWindow();
