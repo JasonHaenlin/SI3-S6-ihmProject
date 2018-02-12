@@ -36,7 +36,7 @@ public class IncidentManager {
 		try {
 			FileInputStream fis = new FileInputStream("incidentList.incident");
 			ObjectInputStream is = new ObjectInputStream(fis);
-			incidentList = (List<Incident>) is.readObject();
+			incidentList = (ArrayList<Incident>) is.readObject();
 			is.close();
 			fis.close();
 		} catch (FileNotFoundException e) {

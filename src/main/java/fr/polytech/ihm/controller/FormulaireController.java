@@ -112,6 +112,8 @@ public class FormulaireController {
         Incident incident = new Incident(nom, prenom, posteAnnee, type, titre, dateString, description, importance,
                 batiment, salle, details);
         IncidentManager.addIncident(incident);
+        IncidentManager.saveIncidentList();
+
     }
 
 }

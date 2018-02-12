@@ -3,20 +3,11 @@ package fr.polytech.ihm.controller;
 import fr.polytech.ihm.model.FilterBy;
 import fr.polytech.ihm.model.Incident;
 import fr.polytech.ihm.model.IncidentManager;
-import fr.polytech.ihm.model.PosteAnnee;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class HistoryController {
 

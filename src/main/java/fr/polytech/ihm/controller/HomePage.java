@@ -3,6 +3,7 @@ package fr.polytech.ihm.controller;
  * Sample Skeleton for 'freyja-homePage.fxml' Controller Class
  */
 
+import fr.polytech.ihm.model.IncidentManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
