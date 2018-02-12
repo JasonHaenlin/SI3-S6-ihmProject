@@ -19,46 +19,116 @@ import java.time.LocalDate;
 
 public class FormulaireController {
     private static final Logger log = LoggerFactory.getLogger(MainApp.class);
+    @FXML
+    private Label askValidadLabel;
 
     @FXML
     private TextField nomField;
+
     @FXML
-    private TextField prenomField;
+    private Label nameLabel;
+
     @FXML
-    private TextField detailsField;
+    private VBox prenomField;
+
+    @FXML
+    private TextField firstNameLabel;
+
+    @FXML
+    private VBox occupation;
+
+    @FXML
+    private Label occupationLabel;
+
+    @FXML
+    private ComboBox<?> posteAnneeDropdown;
+
+    @FXML
+    private VBox mishapType;
+
+    @FXML
+    private Label mishapTypeLabel;
+
+    @FXML
+    private ComboBox<?> typeDropdown;
+
+    @FXML
+    private VBox mishapTitle;
+
+    @FXML
+    private Label mishapTitlelabel;
+
     @FXML
     private TextField titreField;
-    @FXML
-    private TextField salleField;
-    @FXML
-    private TextField batimentField;
-
 
     @FXML
-    private TextArea descriptionField;
+    private VBox date;
+
+    @FXML
+    private Label dateLabel;
 
     @FXML
     private DatePicker dateField;
 
     @FXML
-    private Button validButton;
+    private VBox description;
+
+    @FXML
+    private Label descriptionLabel;
+
+    @FXML
+    private TextField descriptionField;
+
+    @FXML
+    private VBox mishapGravity;
+
+    @FXML
+    private Label gravityLabel;
+
+    @FXML
+    private ComboBox<?> importanceDropdown;
+
+    @FXML
+    private VBox localisation;
+
+    @FXML
+    private Label locationLabel;
+
+    @FXML
+    private Label buildingLabel;
+
+    @FXML
+    private TextField batimentField;
+
+    @FXML
+    private Label roomLabel;
+
+    @FXML
+    private TextField salleField;
+
+    @FXML
+    private Label detailLabel;
+
+    @FXML
+    private TextField detailsField;
+
     @FXML
     private Button retourButton;
 
     @FXML
-    private ComboBox posteAnneeDropdown;
-    @FXML
-    private ComboBox typeDropdown;
-    @FXML
-    private ComboBox importanceDropdown;
-
+    private Label returnLabel;
 
     @FXML
-	public void initialize() {
-		posteAnneeDropdown.getItems().setAll(PosteAnnee.values());
-		typeDropdown.getItems().setAll(Type.values());
-		importanceDropdown.getItems().setAll(Importance.values());
+    private Button validButton;
 
+    @FXML
+    private Label validLabel;
+
+    @FXML
+    public void initialize() {
+        posteAnneeDropdown.getItems().setAll(PosteAnnee.values());
+        typeDropdown.getItems().setAll(Type.values());
+        importanceDropdown.getItems().setAll(Importance.values());
 
         validButton.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) {
@@ -100,22 +170,23 @@ public class FormulaireController {
 
     }
 
-	public void submitForm() {
-		StringProperty nom = new SimpleStringProperty(nomField.getText());
-		StringProperty prenom = new SimpleStringProperty(prenomField.getText());
-		StringProperty details = new SimpleStringProperty(detailsField.getText());
-		StringProperty titre = new SimpleStringProperty(titreField.getText());
-		StringProperty description = new SimpleStringProperty(descriptionField.getText());
-		StringProperty salle = new SimpleStringProperty(salleField.getText());
-		StringProperty batiment = new SimpleStringProperty(batimentField.getText());
-		StringProperty posteAnnee = new SimpleStringProperty(posteAnneeDropdown.getValue().toString());
-		StringProperty importance = new SimpleStringProperty(importanceDropdown.getValue().toString());
-		StringProperty type = new SimpleStringProperty(typeDropdown.getValue().toString());
-		LocalDate date = dateField.getValue();
-		StringProperty dateString = new SimpleStringProperty(date.toString());
+    public void submitForm() {
+        StringProperty nom = new SimpleStringProperty(nomField.getText());
+        StringProperty prenom = new SimpleStringProperty(prenomField.getText());
+        StringProperty details = new SimpleStringProperty(detailsField.getText());
+        StringProperty titre = new SimpleStringProperty(titreField.getText());
+        StringProperty description = new SimpleStringProperty(descriptionField.getText());
+        StringProperty salle = new SimpleStringProperty(salleField.getText());
+        StringProperty batiment = new SimpleStringProperty(batimentField.getText());
+        StringProperty posteAnnee = new SimpleStringProperty(posteAnneeDropdown.getValue().toString());
+        StringProperty importance = new SimpleStringProperty(importanceDropdown.getValue().toString());
+        StringProperty type = new SimpleStringProperty(typeDropdown.getValue().toString());
+        LocalDate date = dateField.getValue();
+        StringProperty dateString = new SimpleStringProperty(date.toString());
 
-		Incident incident = new Incident(nom, prenom, posteAnnee, type, titre, dateString, description, importance, batiment, salle, details);
-		IncidentManager.addIncident(incident);
+        Incident incident = new Incident(nom, prenom, posteAnnee, type, titre, dateString, description, importance,
+                batiment, salle, details);
+        IncidentManager.addIncident(incident);
     }
 
 }
