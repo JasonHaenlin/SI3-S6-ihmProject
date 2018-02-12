@@ -1,3 +1,8 @@
+.root {
+    -fx-font-family: "Futura";
+}
+
+
 #declarationLabel {
     -fx-text-fill: #E73525;
 }
@@ -7,7 +12,7 @@
 }
 
 .label {
-    -fx-font-family: "Source Sans Pro";
+   -fx-font-family: "Futura";
 }
 
 #declarationButton {
