@@ -1,11 +1,20 @@
 package fr.polytech.ihm.controller;
 
+import fr.polytech.ihm.model.Incident;
+import fr.polytech.ihm.model.IncidentManager;
+import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class HistoryController {
 
@@ -16,34 +25,54 @@ public class HistoryController {
     private ImageView recherch;
 
     @FXML
-    private TableView<?> table;
+    private TableView<Incident> table;
 
     @FXML
-    private TableColumn<?, ?> titreCol;
+    private TableColumn<Incident, String> titreCol;
 
     @FXML
-    private TableColumn<?, ?> typeCol;
+    private TableColumn<Incident, String> typeCol;
 
     @FXML
-    private TableColumn<?, ?> importanceCol;
+    private TableColumn<Incident, String> importanceCol;
 
     @FXML
-    private TableColumn<?, ?> dateCol;
+    private TableColumn<Incident, String> dateCol;
 
     @FXML
-    private TableColumn<?, ?> localisationCol;
+    private TableColumn<Incident, String> localisationCol;
 
     @FXML
-    private TableColumn<?, ?> nomCol;
+    private TableColumn<Incident, String> nomCol;
 
     @FXML
-    private TableColumn<?, ?> prenomCol;
+    private TableColumn<Incident, String> prenomCol;
 
     @FXML
-    private TableColumn<?, ?> posteCol;
+    private TableColumn<Incident, String> posteCol;
 
     @FXML
     private Button retour;
+
+    @FXML
+    public void initialize(){
+        ObservableList<Incident> incidents= FXCollections.observableArrayList();
+        for(Incident incident : IncidentManager.getIncidentList()){
+        	incidents.add(incident);
+        }
+
+        titreCol.setCellValueFactory(cellData -> cellData.getValue().titreProperty());
+        typeCol.setCellValueFactory(cellData -> cellData.getValue().typeProperty());
+        importanceCol.setCellValueFactory(cellData -> cellData.getValue().importanceProperty());
+	    dateCol.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
+	    localisationCol.setCellValueFactory(cellData -> (cellData.getValue().batimentProperty().concat(cellData.getValue().salleProperty())));
+	    nomCol.setCellValueFactory(cellData -> cellData.getValue().nomProperty());
+	    prenomCol.setCellValueFactory(cellData -> cellData.getValue().prenomProperty());
+	    posteCol.setCellValueFactory(cellData -> cellData.getValue().posteAnneeProperty());
+
+
+        table.setItems(incidents);
+    }
 
 }
 

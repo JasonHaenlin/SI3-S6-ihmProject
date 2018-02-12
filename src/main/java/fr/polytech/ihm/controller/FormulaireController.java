@@ -74,7 +74,7 @@ public class FormulaireController {
                     Scene scene = new Scene(rootNode);
                     stage.setScene(scene);
                     stage.show();
-                } catch (Exception e) {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
@@ -138,8 +138,9 @@ public class FormulaireController {
         } catch (NullPointerException e) {
         }
 
-        Incident incident = new Incident(nom, prenom, posteAnnee, type, titre, dateString, description, importance, batiment, salle, details);
-        IncidentManager.addIncident(incident);
+		Incident incident = new Incident(nom, prenom, posteAnnee, type, titre, dateString, description, importance, batiment, salle, details);
+		IncidentManager.addIncident(incident);
+		IncidentManager.saveIncidentList();
     }
 
 }
