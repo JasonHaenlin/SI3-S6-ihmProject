@@ -20,109 +20,31 @@ import java.time.LocalDate;
 public class FormulaireController {
     private static final Logger log = LoggerFactory.getLogger(MainApp.class);
     @FXML
-    private Label askValidadLabel;
-
-    @FXML
     private TextField nomField;
-
     @FXML
-    private Label nameLabel;
-
-    @FXML
-    private VBox prenomField;
-
-    @FXML
-    private TextField firstNameLabel;
-
-    @FXML
-    private VBox occupation;
-
-    @FXML
-    private Label occupationLabel;
-
-    @FXML
-    private ComboBox<?> posteAnneeDropdown;
-
-    @FXML
-    private VBox mishapType;
-
-    @FXML
-    private Label mishapTypeLabel;
-
-    @FXML
-    private ComboBox<?> typeDropdown;
-
-    @FXML
-    private VBox mishapTitle;
-
-    @FXML
-    private Label mishapTitlelabel;
-
-    @FXML
-    private TextField titreField;
-
-    @FXML
-    private VBox date;
-
-    @FXML
-    private Label dateLabel;
-
-    @FXML
-    private DatePicker dateField;
-
-    @FXML
-    private VBox description;
-
-    @FXML
-    private Label descriptionLabel;
-
-    @FXML
-    private TextField descriptionField;
-
-    @FXML
-    private VBox mishapGravity;
-
-    @FXML
-    private Label gravityLabel;
-
-    @FXML
-    private ComboBox<?> importanceDropdown;
-
-    @FXML
-    private VBox localisation;
-
-    @FXML
-    private Label locationLabel;
-
-    @FXML
-    private Label buildingLabel;
-
-    @FXML
-    private TextField batimentField;
-
-    @FXML
-    private Label roomLabel;
-
-    @FXML
-    private TextField salleField;
-
-    @FXML
-    private Label detailLabel;
-
+    private TextField prenomField;
     @FXML
     private TextField detailsField;
-
     @FXML
-    private Button retourButton;
-
+    private TextField titreField;
     @FXML
-    private Label returnLabel;
-
+    private TextField salleField;
+    @FXML
+    private TextField batimentField;
+    @FXML
+    private TextArea descriptionField;
+    @FXML
+    private DatePicker dateField;
     @FXML
     private Button validButton;
-
     @FXML
-    private Label validLabel;
+    private Button retourButton;
+    @FXML
+    private ComboBox posteAnneeDropdown;
+    @FXML
+    private ComboBox typeDropdown;
+    @FXML
+    private ComboBox importanceDropdown;
 
     @FXML
     public void initialize() {
