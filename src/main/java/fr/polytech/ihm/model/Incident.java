@@ -1,5 +1,6 @@
 package fr.polytech.ihm.model;
 
+import com.sun.istack.internal.Nullable;
 import javafx.beans.property.StringProperty;
 
 public class Incident {
@@ -31,7 +32,7 @@ public class Incident {
      * @param salle       the room of Polytech of the incident
      * @param details     some details can be add
      */
-    public Incident(StringProperty nom, StringProperty prenom, StringProperty posteAnnee, StringProperty type, StringProperty titre, StringProperty date, StringProperty description, StringProperty importance, StringProperty batiment, StringProperty salle, StringProperty details) {
+    public Incident(StringProperty nom, StringProperty prenom, StringProperty posteAnnee, StringProperty type, StringProperty titre, @Nullable StringProperty date, StringProperty description, @Nullable StringProperty importance, @Nullable StringProperty batiment, @Nullable StringProperty salle, @Nullable StringProperty details) {
         this.nom = nom;
         this.prenom = prenom;
         this.posteAnnee = posteAnnee;

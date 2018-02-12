@@ -54,10 +54,10 @@ public class FormulaireController {
 
 
     @FXML
-	public void initialize() {
-		posteAnneeDropdown.getItems().setAll(PosteAnnee.values());
-		typeDropdown.getItems().setAll(Type.values());
-		importanceDropdown.getItems().setAll(Importance.values());
+    public void initialize() {
+        posteAnneeDropdown.getItems().setAll(PosteAnnee.values());
+        typeDropdown.getItems().setAll(Type.values());
+        importanceDropdown.getItems().setAll(Importance.values());
 
 
         validButton.setOnMouseClicked(event -> {
@@ -67,13 +67,14 @@ public class FormulaireController {
                 FXMLLoader loader = new FXMLLoader();
                 log.debug("Validate input");
                 try {
+                    submitForm();
                     Stage stage = (Stage) validButton.getScene().getWindow();
                     Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
 
                     Scene scene = new Scene(rootNode);
                     stage.setScene(scene);
                     stage.show();
-                } catch (IOException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -100,22 +101,45 @@ public class FormulaireController {
 
     }
 
-	public void submitForm() {
-		StringProperty nom = new SimpleStringProperty(nomField.getText());
-		StringProperty prenom = new SimpleStringProperty(prenomField.getText());
-		StringProperty details = new SimpleStringProperty(detailsField.getText());
-		StringProperty titre = new SimpleStringProperty(titreField.getText());
-		StringProperty description = new SimpleStringProperty(descriptionField.getText());
-		StringProperty salle = new SimpleStringProperty(salleField.getText());
-		StringProperty batiment = new SimpleStringProperty(batimentField.getText());
-		StringProperty posteAnnee = new SimpleStringProperty(posteAnneeDropdown.getValue().toString());
-		StringProperty importance = new SimpleStringProperty(importanceDropdown.getValue().toString());
-		StringProperty type = new SimpleStringProperty(typeDropdown.getValue().toString());
-		LocalDate date = dateField.getValue();
-		StringProperty dateString = new SimpleStringProperty(date.toString());
+    public void submitForm() {
+        StringProperty nom = new SimpleStringProperty(nomField.getText());
+        StringProperty prenom = new SimpleStringProperty(prenomField.getText());
+        StringProperty details = new SimpleStringProperty(detailsField.getText());
+        StringProperty titre = new SimpleStringProperty(titreField.getText());
+        StringProperty description = new SimpleStringProperty(descriptionField.getText());
+        StringProperty salle = new SimpleStringProperty(salleField.getText());
+        StringProperty batiment = new SimpleStringProperty(batimentField.getText());
+        StringProperty posteAnnee = null;
+        StringProperty importance = null;
+        StringProperty type = null;
+        try {
+            posteAnnee = new SimpleStringProperty(posteAnneeDropdown.getValue().toString());
+        } catch (NullPointerException e) {
+            System.out.println("PB ICI AFFICHER TRUC NON REMPLI");
+        }
 
-		Incident incident = new Incident(nom, prenom, posteAnnee, type, titre, dateString, description, importance, batiment, salle, details);
-		IncidentManager.addIncident(incident);
+        try {
+            importance = new SimpleStringProperty(importanceDropdown.getValue().toString());
+        } catch (Exception e) {
+
+        }
+
+        try {
+            type = new SimpleStringProperty(typeDropdown.getValue().toString());
+        } catch (NullPointerException e) {
+        }
+
+        LocalDate date = dateField.getValue();
+
+        StringProperty dateString = null;
+
+        try {
+            dateString = new SimpleStringProperty(date.toString());
+        } catch (NullPointerException e) {
+        }
+
+        Incident incident = new Incident(nom, prenom, posteAnnee, type, titre, dateString, description, importance, batiment, salle, details);
+        IncidentManager.addIncident(incident);
     }
 
 }
