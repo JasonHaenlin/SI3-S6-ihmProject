@@ -1,0 +1,6 @@
+#loupeButton {
+    -fx-background-size: 60%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-image: url(/images/loupe.png);
+}

@@ -20,7 +20,7 @@ public class IncidentManager {
 
 	public static void saveIncidentList(){
 		try {
-			FileOutputStream fos = new FileOutputStream("incidentList.incident");
+			FileOutputStream fos = new FileOutputStream("incidentList.freyja");
 			ObjectOutputStream os = new ObjectOutputStream(fos);
 			os.writeObject(incidentList);
 			os.close();
@@ -35,7 +35,7 @@ public class IncidentManager {
 
 	public static void loadIncidentList(){
 		try {
-			FileInputStream fis = new FileInputStream("incidentList.incident");
+			FileInputStream fis = new FileInputStream("incidentList.freyja");
 			ObjectInputStream is = new ObjectInputStream(fis);
 			incidentList = (ArrayList<Incident>) is.readObject();
 			is.close();

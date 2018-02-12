@@ -35,8 +35,7 @@ public class HomePage {
     	try{
 		    IncidentManager.loadIncidentList();
 	    }catch (Exception e){
-		    System.err.println("Failed to load");
-			e.printStackTrace();
+		    System.err.println("Pas de fichier de sauvegarde valide trouvé");
 	    }
 
         declarationButton.setOnMouseClicked(event -> {
