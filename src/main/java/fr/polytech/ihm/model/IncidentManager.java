@@ -1,12 +1,13 @@
 package fr.polytech.ihm.model;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 public class IncidentManager {
 
-    private static List<Incident> incidentList = new ArrayList<>();
+    private static ArrayList<Incident> incidentList = new ArrayList<>();
 
     public static void addIncident(Incident incident) {
         incidentList.add(incident);
@@ -19,7 +20,7 @@ public class IncidentManager {
 
 	public static void saveIncidentList(){
 		try {
-			FileOutputStream fos = new FileOutputStream("incidentList.incident");
+			FileOutputStream fos = new FileOutputStream("incidentList.freyja");
 			ObjectOutputStream os = new ObjectOutputStream(fos);
 			os.writeObject(incidentList);
 			os.close();
@@ -34,7 +35,7 @@ public class IncidentManager {
 
 	public static void loadIncidentList(){
 		try {
-			FileInputStream fis = new FileInputStream("incidentList.incident");
+			FileInputStream fis = new FileInputStream("incidentList.freyja");
 			ObjectInputStream is = new ObjectInputStream(fis);
 			incidentList = (ArrayList<Incident>) is.readObject();
 			is.close();

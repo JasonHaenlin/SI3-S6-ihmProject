@@ -1,0 +1,19 @@
+ .titleBar {
+    -fx-background-color :  #3A89C9;
+ }
+
+ #retour {
+     -fx-background-image: url(/images/return.png);
+ }
+
+ .button {
+     -fx-background-size: 40px;
+     -fx-background-repeat: no-repeat;
+ }
+
+#loupeButton {
+    -fx-background-size: 60%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-image: url(/images/loupe.png);
+}
