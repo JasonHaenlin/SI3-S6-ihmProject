@@ -19,7 +19,7 @@ public class Incident {
     /**
      * Default constructor for an Incident
      *
-     * @param nom         the name of the person declaring the incient
+     * @param nom         the name of the person declaring the incident
      * @param prenom      the first name of the person declaring the incident
      * @param posteAnnee  the role or year of the person declaring the incident
      * @param type        the type of the incident

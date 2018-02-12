@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,9 +30,10 @@ public class MainApp extends Application {
         log.debug("Showing Home Page scene");
         Scene scene = new Scene(rootNode, 735, 465);
 
-        stage.setTitle("Bienvenue sur Freyja - Gestion d'incidents pour Polytech");
+        stage.setTitle("Freyja - Gestion d'incidents pour Polytech");
         stage.setScene(scene);
         stage.getIcons().add(new Image("/images/logo.png"));
+
         stage.show();
     }
 }
