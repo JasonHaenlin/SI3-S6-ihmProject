@@ -49,13 +49,14 @@ public class HomePage {
             }
         });
 
-        visuButton.setOnMouseClicked(event -> {
+
+	    visuButton.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) {
 
-                String fxmlFile = "/fxml/history.fxml";
+	            String fxmlFile = "/fxml/history.fxml";
                 FXMLLoader loader = new FXMLLoader();
                 try {
-                    Stage stage = (Stage) declarationButton.getScene().getWindow();
+                    Stage stage = (Stage) visuButton.getScene().getWindow();
                     Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
 
                     Scene scene = new Scene(rootNode);
@@ -65,7 +66,6 @@ public class HomePage {
                     e.printStackTrace();
                 }
             }
-
         });
 
     }
