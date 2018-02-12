@@ -21,30 +21,42 @@ public class FormulaireController {
     private static final Logger log = LoggerFactory.getLogger(MainApp.class);
     @FXML
     private TextField nomField;
+
     @FXML
     private TextField prenomField;
+
     @FXML
-    private TextField detailsField;
+    private ComboBox<?> posteAnneeDropdown;
+
+    @FXML
+    private ComboBox<?> typeDropdown;
+
     @FXML
     private TextField titreField;
-    @FXML
-    private TextField salleField;
-    @FXML
-    private TextField batimentField;
-    @FXML
-    private TextArea descriptionField;
+
     @FXML
     private DatePicker dateField;
+
     @FXML
-    private Button validButton;
+    private TextField descriptionField;
+
+    @FXML
+    private ComboBox<?> importanceDropdown;
+
+    @FXML
+    private TextField batimentField;
+
+    @FXML
+    private TextField salleField;
+
+    @FXML
+    private TextField detailsField;
+
     @FXML
     private Button retourButton;
+
     @FXML
-    private ComboBox posteAnneeDropdown;
-    @FXML
-    private ComboBox typeDropdown;
-    @FXML
-    private ComboBox importanceDropdown;
+    private Button validButton;
 
     @FXML
     public void initialize() {
