@@ -6,6 +6,7 @@ package fr.polytech.ihm.controller;
 import fr.polytech.ihm.model.IncidentManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.LoadException;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -31,6 +32,12 @@ public class HomePage {
 
     @FXML
     public void initialize() {
+    	try{
+		    IncidentManager.loadIncidentList();
+	    }catch (Exception e){
+		    System.err.println("Failed to load");
+			e.printStackTrace();
+	    }
 
         declarationButton.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) {

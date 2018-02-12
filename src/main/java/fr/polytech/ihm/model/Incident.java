@@ -1,6 +1,7 @@
 package fr.polytech.ihm.model;
 
 import com.sun.istack.internal.Nullable;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.io.IOException;
@@ -68,17 +69,17 @@ public class Incident implements Serializable{
     }
 
     private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
-        nom.set(s.readUTF());
-        prenom.set(s.readUTF());
-        posteAnnee.set(s.readUTF());
-        type.set(s.readUTF());
-        titre.set(s.readUTF());
-        date.set(s.readUTF());
-        description.set(s.readUTF());
-        importance.set(s.readUTF());
-        batiment.set(s.readUTF());
-        salle.set(s.readUTF());
-        details.set(s.readUTF());
+        nom = new SimpleStringProperty(s.readUTF());
+        prenom = new SimpleStringProperty(s.readUTF());
+        posteAnnee = new SimpleStringProperty(s.readUTF());
+        type = new SimpleStringProperty(s.readUTF());
+        titre = new SimpleStringProperty(s.readUTF());
+        date = new SimpleStringProperty(s.readUTF());
+        description = new SimpleStringProperty(s.readUTF());
+        importance = new SimpleStringProperty(s.readUTF());
+        batiment = new SimpleStringProperty(s.readUTF());
+        salle = new SimpleStringProperty(s.readUTF());
+        details = new SimpleStringProperty(s.readUTF());
     }
 
 	public String getNom() {
