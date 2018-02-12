@@ -1,9 +1,9 @@
 package fr.polytech.ihm.controller;
 
 import fr.polytech.ihm.MainApp;
-import fr.polytech.ihm.model.Importance;
-import fr.polytech.ihm.model.PosteAnnee;
-import fr.polytech.ihm.model.Type;
+import fr.polytech.ihm.model.*;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -54,12 +54,10 @@ public class FormulaireController {
 
 
     @FXML
-    public void initialize() {
-
-
-        posteAnneeDropdown.getItems().setAll(PosteAnnee.values());
-        typeDropdown.getItems().setAll(Type.values());
-        importanceDropdown.getItems().setAll(Importance.values());
+	public void initialize() {
+		posteAnneeDropdown.getItems().setAll(PosteAnnee.values());
+		typeDropdown.getItems().setAll(Type.values());
+		importanceDropdown.getItems().setAll(Importance.values());
 
 
         validButton.setOnMouseClicked(event -> {
@@ -69,7 +67,6 @@ public class FormulaireController {
                 FXMLLoader loader = new FXMLLoader();
                 log.debug("Validate input");
                 try {
-                    //System.out.println(dateField.getChronology());
                     Stage stage = (Stage) validButton.getScene().getWindow();
                     Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
 
@@ -103,24 +100,22 @@ public class FormulaireController {
 
     }
 
-    public void submitForm() {
-        String nom = nomField.getText();
-        String prenom = prenomField.getText();
-        String details = detailsField.getText();
-        String titre = titreField.getText();
-        String description = descriptionField.getText();
-        String salle = salleField.getText();
-        String batiment = batimentField.getText();
-        String posteAnnee = posteAnneeDropdown.getValue().toString();
-        String importance = importanceDropdown.getValue().toString();
-        String type = typeDropdown.getValue().toString();
-        LocalDate date = dateField.getValue();
+	public void submitForm() {
+		StringProperty nom = new SimpleStringProperty(nomField.getText());
+		StringProperty prenom = new SimpleStringProperty(prenomField.getText());
+		StringProperty details = new SimpleStringProperty(detailsField.getText());
+		StringProperty titre = new SimpleStringProperty(titreField.getText());
+		StringProperty description = new SimpleStringProperty(descriptionField.getText());
+		StringProperty salle = new SimpleStringProperty(salleField.getText());
+		StringProperty batiment = new SimpleStringProperty(batimentField.getText());
+		StringProperty posteAnnee = new SimpleStringProperty(posteAnneeDropdown.getValue().toString());
+		StringProperty importance = new SimpleStringProperty(importanceDropdown.getValue().toString());
+		StringProperty type = new SimpleStringProperty(typeDropdown.getValue().toString());
+		LocalDate date = dateField.getValue();
+		StringProperty dateString = new SimpleStringProperty(date.toString());
 
-
-        StringBuilder builder = new StringBuilder();
-    }
-
-    public void changeView() {
+		Incident incident = new Incident(nom, prenom, posteAnnee, type, titre, dateString, description, importance, batiment, salle, details);
+		IncidentManager.addIncident(incident);
     }
 
 }
