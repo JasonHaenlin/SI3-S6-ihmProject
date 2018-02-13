@@ -59,6 +59,10 @@ public class FormulaireController {
     private Button validButton;
 
     @FXML
+    private Label champs;
+
+
+    @FXML
     public void initialize() {
         posteAnneeDropdown.getItems().setAll(PosteAnnee.values());
         typeDropdown.getItems().setAll(Type.values());
@@ -82,6 +86,8 @@ public class FormulaireController {
                     e.printStackTrace();
                 } catch (NullPointerException e) {
                     System.out.println("CHAMP EN ROUGE");
+                    e.printStackTrace();
+                    champs.setVisible(true);
                 }
             }
         });
@@ -116,13 +122,22 @@ public class FormulaireController {
         StringProperty salle = new SimpleStringProperty(salleField.getText());
         StringProperty batiment = new SimpleStringProperty(batimentField.getText());
         StringProperty posteAnnee = new SimpleStringProperty(posteAnneeDropdown.getValue().toString());
-        StringProperty importance = new SimpleStringProperty(importanceDropdown.getValue().toString());
+        StringProperty importance = null;
+        try {
+            importance = new SimpleStringProperty(importanceDropdown.getValue().toString());
+        } catch (NullPointerException e) {
+        }
+
         StringProperty type = new SimpleStringProperty(typeDropdown.getValue().toString());
         LocalDate date = dateField.getValue();
-        StringProperty dateString = new SimpleStringProperty(date.toString());
+        StringProperty dateString = null;
+        try {
+            dateString = new SimpleStringProperty(date.toString());
+        } catch (NullPointerException e) {
 
-        Incident incident = new Incident(nom, prenom, posteAnnee, type, titre, dateString, description, importance,
-                batiment, salle, details);
+        }
+
+        Incident incident = new Incident(nom, prenom, posteAnnee, type, titre, dateString, description, importance, batiment, salle, details);
         IncidentManager.addIncident(incident);
         IncidentManager.saveIncidentList();
 
