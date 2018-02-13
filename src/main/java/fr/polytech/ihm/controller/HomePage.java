@@ -32,16 +32,16 @@ public class HomePage {
 
     @FXML
     public void initialize() {
-    	try{
-		    IncidentManager.loadIncidentList();
-	    }catch (Exception e){
-		    System.err.println("Pas de fichier de sauvegarde valide trouvé");
-	    }
+        try {
+            IncidentManager.loadIncidentList();
+        } catch (Exception e) {
+            System.err.println("Pas de fichier de sauvegarde valide trouvé");
+        }
 
         declarationButton.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) {
 
-                String fxmlFile = "/fxml/formulaireIncident.fxml";
+                String fxmlFile = "/fxml/applicationForm.fxml";
                 FXMLLoader loader = new FXMLLoader();
                 try {
                     Stage stage = (Stage) declarationButton.getScene().getWindow();
@@ -55,7 +55,6 @@ public class HomePage {
                 }
             }
         });
-
 
         visuButton.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) {

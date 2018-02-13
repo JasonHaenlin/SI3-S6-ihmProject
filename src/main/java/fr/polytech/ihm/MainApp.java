@@ -5,8 +5,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
+import java.awt.Paint;
+
+import com.sun.prism.paint.Color;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,7 +26,6 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
 
         log.info("Starting Freyja application");
-
         String fxmlFile = "/fxml/freyja-homePage.fxml";
         log.debug("Loading FXML for main view from: {}", fxmlFile);
         FXMLLoader loader = new FXMLLoader();
