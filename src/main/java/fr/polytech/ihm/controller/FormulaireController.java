@@ -22,6 +22,7 @@ public class FormulaireController {
     private static final Logger log = LoggerFactory.getLogger(MainApp.class);
 
     private static final String WARNING_COLOR = "-fx-background-color: rgb(237, 109, 109);";
+    private static final String NO_WARNING_COLOR = "-fx-background-color: rgb(255, 255, 255);";
 
     @FXML
     private TextField nomField;
@@ -85,8 +86,6 @@ public class FormulaireController {
                         Scene scene = new Scene(rootNode);
                         stage.setScene(scene);
                         stage.show();
-                    } else {
-                        requiretChampsWarning();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -114,17 +113,6 @@ public class FormulaireController {
 
     }
 
-    private void requiretChampsWarning() {
-        log.debug("CHAMP EN ROUGE");
-        champs.setVisible(true);
-        nomField.setStyle(WARNING_COLOR);
-        prenomField.setStyle(WARNING_COLOR);
-        titreField.setStyle(WARNING_COLOR);
-        descriptionField.setStyle(WARNING_COLOR);
-        posteAnneeDropdown.setStyle(WARNING_COLOR);
-        typeDropdown.setStyle(WARNING_COLOR);
-    }
-
     private boolean submitFormOk() {
 
         boolean reboot = false;
@@ -143,18 +131,51 @@ public class FormulaireController {
         StringProperty details = null;
         StringProperty importance = null;
         StringProperty dateString = null;
-
+        //--------//
+        nom = new SimpleStringProperty(nomField.getText());
+        if (nom.getValue().isEmpty()) {
+            nomField.setStyle(WARNING_COLOR);
+            reboot = true;
+        } else
+            nomField.setStyle(NO_WARNING_COLOR);
+        //--------//
+        prenom = new SimpleStringProperty(prenomField.getText());
+        if (prenom.getValue().isEmpty()) {
+            prenomField.setStyle(WARNING_COLOR);
+            reboot = true;
+        } else
+            prenomField.setStyle(NO_WARNING_COLOR);
+        //--------//
+        titre = new SimpleStringProperty(titreField.getText());
+        if (titre.getValue().isEmpty()) {
+            titreField.setStyle(WARNING_COLOR);
+            reboot = true;
+        } else
+            titreField.setStyle(NO_WARNING_COLOR);
+        //--------//
+        description = new SimpleStringProperty(descriptionField.getText());
+        if (description.getValue().isEmpty()) {
+            descriptionField.setStyle(WARNING_COLOR);
+            reboot = true;
+        } else
+            descriptionField.setStyle(NO_WARNING_COLOR);
+        //--------//
         try {
-            nom = new SimpleStringProperty(nomField.getText());
-            prenom = new SimpleStringProperty(prenomField.getText());
-            titre = new SimpleStringProperty(titreField.getText());
-            description = new SimpleStringProperty(descriptionField.getText());
-            type = new SimpleStringProperty(typeDropdown.getValue().toString());
             posteAnnee = new SimpleStringProperty(posteAnneeDropdown.getValue().toString());
-        } catch (NullPointerException e) {
-            log.error("required field needed");
+            posteAnneeDropdown.setStyle(NO_WARNING_COLOR);
+        } catch (Exception e) {
+            posteAnneeDropdown.setStyle(WARNING_COLOR);
             reboot = true;
         }
+        //--------//
+        try {
+            type = new SimpleStringProperty(typeDropdown.getValue().toString());
+            typeDropdown.setStyle(NO_WARNING_COLOR);
+        } catch (Exception e) {
+            typeDropdown.setStyle(WARNING_COLOR);
+            reboot = true;
+        }
+        //--------//
         try {
             dateString = new SimpleStringProperty(date.toString());
             salle = new SimpleStringProperty(salleField.getText());
@@ -168,12 +189,16 @@ public class FormulaireController {
             details = new SimpleStringProperty(" ");
             importance = new SimpleStringProperty(Importance.MODEREE.toString());
         }
-
+        //--------//
         if (!reboot) {
             Incident incident = new Incident(nom, prenom, posteAnnee, type, titre, dateString, description, importance,
                     batiment, salle, details);
             IncidentManager.addIncident(incident);
             IncidentManager.saveIncidentList();
+        } else {
+            log.error("required field needed");
+            log.debug("CHAMP EN ROUGE");
+            champs.setVisible(true);
         }
         return !reboot;
 
