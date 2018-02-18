@@ -43,7 +43,7 @@ public class FormulaireController {
     private DatePicker dateField;
 
     @FXML
-    private TextField descriptionField;
+    private TextArea descriptionField;
 
     @FXML
     private ComboBox<Importance> importanceDropdown;
