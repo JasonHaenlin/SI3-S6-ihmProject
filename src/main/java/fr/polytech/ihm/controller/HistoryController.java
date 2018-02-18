@@ -16,8 +16,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
-
 import java.io.IOException;
+import javafx.util.Callback;
+import javafx.scene.control.TableCell;
+import javafx.event.EventHandler;
 
 public class HistoryController {
 
@@ -59,6 +61,7 @@ public class HistoryController {
 
     @FXML
     public void initialize() {
+
         filter.getItems().setAll(FilterBy.values());
         ObservableList<Incident> incidents = FXCollections.observableArrayList();
         for (Incident incident : IncidentManager.getIncidentList()) {
@@ -69,7 +72,8 @@ public class HistoryController {
         typeCol.setCellValueFactory(cellData -> cellData.getValue().typeProperty());
         importanceCol.setCellValueFactory(cellData -> cellData.getValue().importanceProperty());
         dateCol.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
-        localisationCol.setCellValueFactory(cellData -> (cellData.getValue().batimentProperty().concat(cellData.getValue().salleProperty())));
+        localisationCol.setCellValueFactory(
+                cellData -> (cellData.getValue().batimentProperty().concat(cellData.getValue().salleProperty())));
         nomCol.setCellValueFactory(cellData -> cellData.getValue().nomProperty());
         prenomCol.setCellValueFactory(cellData -> cellData.getValue().prenomProperty());
         posteCol.setCellValueFactory(cellData -> cellData.getValue().posteAnneeProperty());
@@ -95,4 +99,3 @@ public class HistoryController {
     }
 
 }
-

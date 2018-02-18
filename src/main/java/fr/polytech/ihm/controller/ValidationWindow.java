@@ -1,5 +1,9 @@
 package fr.polytech.ihm.controller;
 
+import fr.polytech.ihm.model.Incident;
+import fr.polytech.ihm.model.IncidentManager;
+import javafx.collections.ObservableList;
+import javafx.collections.FXCollections;
 import fr.polytech.ihm.MainApp;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.Observable;
 
 public class ValidationWindow {
 
@@ -24,31 +29,31 @@ public class ValidationWindow {
     private Label recapLabel;
 
     @FXML
-    private TableView<?> recapArray;
+    private TableView<Incident> recapArray;
 
     @FXML
-    private TableColumn<?, ?> title;
+    private TableColumn<Incident, String> title;
 
     @FXML
-    private TableColumn<?, ?> mishapType;
+    private TableColumn<Incident, String> mishapType;
 
     @FXML
-    private TableColumn<?, ?> seriousness;
+    private TableColumn<Incident, String> seriousness;
 
     @FXML
-    private TableColumn<?, ?> date;
+    private TableColumn<Incident, String> date;
 
     @FXML
-    private TableColumn<?, ?> location;
+    private TableColumn<Incident, String> location;
 
     @FXML
-    private TableColumn<?, ?> famillyName;
+    private TableColumn<Incident, String> famillyName;
 
     @FXML
-    private TableColumn<?, ?> name;
+    private TableColumn<Incident, String> name;
 
     @FXML
-    private TableColumn<?, ?> occupation;
+    private TableColumn<Incident, String> occupation;
 
     @FXML
     private Label descriptionLabel;
@@ -70,10 +75,31 @@ public class ValidationWindow {
 
     @FXML
     public void initialize() {
+
+        ObservableList<Incident> incidents = FXCollections.observableArrayList();
+
+        incidents.add(IncidentManager.getIncidentList().get(IncidentManager.getIncidentList().size() - 1));
+
+        try {
+            location.setCellValueFactory(
+                    cellData -> (cellData.getValue().batimentProperty().concat(cellData.getValue().salleProperty())));
+        } catch (Exception e) {
+        }
+        title.setCellValueFactory(cellData -> cellData.getValue().titreProperty());
+        mishapType.setCellValueFactory(cellData -> cellData.getValue().typeProperty());
+        seriousness.setCellValueFactory(cellData -> cellData.getValue().importanceProperty());
+        date.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
+        famillyName.setCellValueFactory(cellData -> cellData.getValue().nomProperty());
+        name.setCellValueFactory(cellData -> cellData.getValue().prenomProperty());
+        occupation.setCellValueFactory(cellData -> cellData.getValue().posteAnneeProperty());
+        recapArray.setItems(incidents);
+
+        descriptionText.setText(incidents.get(0).getDescription());
+
         log.debug("Validation page");
         validButton.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) {
-
+                IncidentManager.saveIncidentList();
                 String fxmlFile = "/fxml/freyja-homePage.fxml";
                 FXMLLoader loader = new FXMLLoader();
                 log.debug("Validate");
@@ -92,8 +118,8 @@ public class ValidationWindow {
         });
         returnButton.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) {
-
-                String fxmlFile = "/fxml/formulaireIncident.fxml";
+                IncidentManager.removeLastIncident();
+                String fxmlFile = "/fxml/applicationForm.fxml";
                 FXMLLoader loader = new FXMLLoader();
                 log.debug("Go back");
                 try {

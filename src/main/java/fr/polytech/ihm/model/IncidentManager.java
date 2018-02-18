@@ -1,24 +1,27 @@
 package fr.polytech.ihm.model;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 public class IncidentManager {
 
-    private static ArrayList<Incident> incidentList = new ArrayList<>();
+	private static ArrayList<Incident> incidentList = new ArrayList<>();
 
-    public static void addIncident(Incident incident) {
-        incidentList.add(incident);
-        System.out.println(incidentList);
-    }
+	public static void addIncident(Incident incident) {
+		incidentList.add(incident);
+		System.out.println(incidentList);
+	}
 
-    public static List<Incident> getIncidentList() {
-        return incidentList;
-    }
+	public static List<Incident> getIncidentList() {
+		return incidentList;
+	}
 
-	public static void saveIncidentList(){
+	public static void removeLastIncident() {
+		incidentList.remove(incidentList.size() - 1);
+	}
+
+	public static void saveIncidentList() {
 		try {
 			FileOutputStream fos = new FileOutputStream("incidentList.freyja");
 			ObjectOutputStream os = new ObjectOutputStream(fos);
@@ -32,8 +35,7 @@ public class IncidentManager {
 		}
 	}
 
-
-	public static void loadIncidentList(){
+	public static void loadIncidentList() {
 		try {
 			FileInputStream fis = new FileInputStream("incidentList.freyja");
 			ObjectInputStream is = new ObjectInputStream(fis);

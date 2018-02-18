@@ -8,7 +8,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-public class Incident implements Serializable{
+public class Incident implements Serializable {
 
     private transient StringProperty nom;
     private transient StringProperty prenom;
@@ -37,7 +37,9 @@ public class Incident implements Serializable{
      * @param salle       the room of Polytech of the incident
      * @param details     some details can be add
      */
-    public Incident(StringProperty nom, StringProperty prenom, StringProperty posteAnnee, StringProperty type, StringProperty titre,  StringProperty date, StringProperty description,  StringProperty importance,  StringProperty batiment,  StringProperty salle,  StringProperty details) {
+    public Incident(StringProperty nom, StringProperty prenom, StringProperty posteAnnee, StringProperty type,
+            StringProperty titre, StringProperty date, StringProperty description, StringProperty importance,
+            StringProperty batiment, StringProperty salle, StringProperty details) {
         this.nom = nom;
         this.prenom = prenom;
         this.posteAnnee = posteAnnee;
@@ -50,7 +52,6 @@ public class Incident implements Serializable{
         this.salle = salle;
         this.details = details;
     }
-
 
     private void writeObject(ObjectOutputStream s) throws IOException {
         s.defaultWriteObject();
@@ -81,91 +82,91 @@ public class Incident implements Serializable{
         details = new SimpleStringProperty(s.readUTF());
     }
 
-	public String getNom() {
-		return nom.get();
-	}
+    public String getNom() {
+        return nom.get();
+    }
 
-	public StringProperty nomProperty() {
-		return nom;
-	}
+    public StringProperty nomProperty() {
+        return nom;
+    }
 
-	public String getPrenom() {
-		return prenom.get();
-	}
+    public String getPrenom() {
+        return prenom.get();
+    }
 
-	public StringProperty prenomProperty() {
-		return prenom;
-	}
+    public StringProperty prenomProperty() {
+        return prenom;
+    }
 
-	public String getType() {
-		return type.get();
-	}
+    public String getType() {
+        return type.get();
+    }
 
-	public StringProperty typeProperty() {
-		return type;
-	}
+    public StringProperty typeProperty() {
+        return type;
+    }
 
-	public String getTitre() {
-		return titre.get();
-	}
+    public String getTitre() {
+        return titre.get();
+    }
 
-	public StringProperty titreProperty() {
-		return titre;
-	}
+    public StringProperty titreProperty() {
+        return titre;
+    }
 
-	public String getPosteAnnee() {
-		return posteAnnee.get();
-	}
+    public String getPosteAnnee() {
+        return posteAnnee.get();
+    }
 
-	public StringProperty posteAnneeProperty() {
-		return posteAnnee;
-	}
+    public StringProperty posteAnneeProperty() {
+        return posteAnnee;
+    }
 
-	public String getDate() {
-		return date.get();
-	}
+    public String getDate() {
+        return date.get();
+    }
 
-	public StringProperty dateProperty() {
-		return date;
-	}
+    public StringProperty dateProperty() {
+        return date;
+    }
 
-	public String getDescription() {
-		return description.get();
-	}
+    public String getDescription() {
+        return description.get();
+    }
 
-	public StringProperty descriptionProperty() {
-		return description;
-	}
+    public StringProperty descriptionProperty() {
+        return description;
+    }
 
-	public String getImportance() {
-		return importance.get();
-	}
+    public String getImportance() {
+        return importance.get();
+    }
 
-	public StringProperty importanceProperty() {
-		return importance;
-	}
+    public StringProperty importanceProperty() {
+        return importance;
+    }
 
-	public String getBatiment() {
-		return batiment.get();
-	}
+    public String getBatiment() {
+        return batiment.get();
+    }
 
-	public StringProperty batimentProperty() {
-		return batiment;
-	}
+    public StringProperty batimentProperty() {
+        return batiment;
+    }
 
-	public String getSalle() {
-		return salle.get();
-	}
+    public String getSalle() {
+        return salle.get();
+    }
 
-	public StringProperty salleProperty() {
-		return salle;
-	}
+    public StringProperty salleProperty() {
+        return salle;
+    }
 
-	public String getDetails() {
-		return details.get();
-	}
+    public String getDetails() {
+        return details.get();
+    }
 
-	public StringProperty detailsProperty() {
-		return details;
-	}
+    public StringProperty detailsProperty() {
+        return details;
+    }
 }
