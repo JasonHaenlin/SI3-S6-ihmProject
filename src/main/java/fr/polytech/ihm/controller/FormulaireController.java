@@ -58,7 +58,7 @@ public class FormulaireController {
     private TextField detailsField;
 
     @FXML
-    private Button retourButton;
+    private Button returnButton;
 
     @FXML
     private Button validButton;
@@ -92,14 +92,14 @@ public class FormulaireController {
                 }
             }
         });
-        retourButton.setOnMouseClicked(event -> {
+        returnButton.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) {
 
                 String fxmlFile = "/fxml/freyja-homePage.fxml";
                 FXMLLoader loader = new FXMLLoader();
                 log.debug("Return to Home Page");
                 try {
-                    Stage stage = (Stage) retourButton.getScene().getWindow();
+                    Stage stage = (Stage) returnButton.getScene().getWindow();
                     Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
 
                     Scene scene = new Scene(rootNode);
