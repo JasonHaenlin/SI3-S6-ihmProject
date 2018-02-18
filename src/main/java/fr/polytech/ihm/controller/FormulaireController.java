@@ -20,6 +20,9 @@ import java.util.Calendar;
 
 public class FormulaireController {
     private static final Logger log = LoggerFactory.getLogger(MainApp.class);
+
+    private static final String WARNING_COLOR = "-fx-background-color: rgb(237, 109, 109);";
+
     @FXML
     private TextField nomField;
 
@@ -83,8 +86,7 @@ public class FormulaireController {
                         stage.setScene(scene);
                         stage.show();
                     } else {
-                        log.debug("CHAMP EN ROUGE");
-                        champs.setVisible(true);
+                        requiretChampsWarning();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -110,6 +112,17 @@ public class FormulaireController {
             }
         });
 
+    }
+
+    private void requiretChampsWarning() {
+        log.debug("CHAMP EN ROUGE");
+        champs.setVisible(true);
+        nomField.setStyle(WARNING_COLOR);
+        prenomField.setStyle(WARNING_COLOR);
+        titreField.setStyle(WARNING_COLOR);
+        descriptionField.setStyle(WARNING_COLOR);
+        posteAnneeDropdown.setStyle(WARNING_COLOR);
+        typeDropdown.setStyle(WARNING_COLOR);
     }
 
     private boolean submitFormOk() {
