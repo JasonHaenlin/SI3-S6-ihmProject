@@ -193,6 +193,7 @@ public class FormulaireController {
         if (!reboot) {
             Incident incident = new Incident(nom, prenom, posteAnnee, type, titre, dateString, description, importance,
                     batiment, salle, details);
+            IncidentManager.addIncident(incident);
             try {
                 IncidentManager.saveIncidentList();
             } catch (IOException e) {
