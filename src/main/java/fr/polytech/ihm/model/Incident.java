@@ -68,7 +68,7 @@ public class Incident implements Serializable{
         s.writeUTF(details.getValueSafe());
     }
 
-    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+    private void readObject(ObjectInputStream s) throws IOException {
         nom = new SimpleStringProperty(s.readUTF());
         prenom = new SimpleStringProperty(s.readUTF());
         posteAnnee = new SimpleStringProperty(s.readUTF());

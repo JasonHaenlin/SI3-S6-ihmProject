@@ -6,7 +6,6 @@ package fr.polytech.ihm.controller;
 import fr.polytech.ihm.model.IncidentManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.LoadException;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -41,7 +40,7 @@ public class HomePage {
         declarationButton.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) {
 
-                String fxmlFile = "/fxml/applicationForm.fxml";
+                String fxmlFile = "/fxml/formulaireIncident.fxml";
                 FXMLLoader loader = new FXMLLoader();
                 try {
                     Stage stage = (Stage) declarationButton.getScene().getWindow();

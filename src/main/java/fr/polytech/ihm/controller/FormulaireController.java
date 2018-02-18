@@ -26,10 +26,10 @@ public class FormulaireController {
     private TextField prenomField;
 
     @FXML
-    private ComboBox posteAnneeDropdown;
+    private ComboBox<PosteAnnee> posteAnneeDropdown;
 
     @FXML
-    private ComboBox typeDropdown;
+    private ComboBox<Type> typeDropdown;
 
     @FXML
     private TextField titreField;
@@ -38,10 +38,10 @@ public class FormulaireController {
     private DatePicker dateField;
 
     @FXML
-    private TextField descriptionField;
+    private TextArea descriptionField;
 
     @FXML
-    private ComboBox importanceDropdown;
+    private ComboBox<Importance> importanceDropdown;
 
     @FXML
     private TextField batimentField;
@@ -113,7 +113,7 @@ public class FormulaireController {
 
     }
 
-    public void submitForm() {
+    private void submitForm() {
         StringProperty nom = new SimpleStringProperty(nomField.getText());
         StringProperty prenom = new SimpleStringProperty(prenomField.getText());
         StringProperty details = new SimpleStringProperty(detailsField.getText());
@@ -139,7 +139,12 @@ public class FormulaireController {
 
         Incident incident = new Incident(nom, prenom, posteAnnee, type, titre, dateString, description, importance, batiment, salle, details);
         IncidentManager.addIncident(incident);
-        IncidentManager.saveIncidentList();
+        try {
+            IncidentManager.saveIncidentList();
+        } catch (IOException e) {
+            System.err.println("Erreur lors de la sauvegarde du formulaire");
+            e.printStackTrace();
+        }
 
     }
 
