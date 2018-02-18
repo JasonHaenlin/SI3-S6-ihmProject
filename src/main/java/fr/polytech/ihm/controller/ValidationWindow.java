@@ -99,7 +99,11 @@ public class ValidationWindow {
         log.debug("Validation page");
         validButton.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) {
-                IncidentManager.saveIncidentList();
+                try {
+                    IncidentManager.saveIncidentList();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
                 String fxmlFile = "/fxml/freyja-homePage.fxml";
                 FXMLLoader loader = new FXMLLoader();
                 log.debug("Validate");

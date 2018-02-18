@@ -6,16 +6,18 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="465.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.FormulaireController">
+<VBox prefHeight="465.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.FormulaireController">
     <children>
         <GridPane>
             <columnConstraints>
@@ -25,6 +27,7 @@
                 <ColumnConstraints hgrow="SOMETIMES" percentWidth="25.0" />
             </columnConstraints>
             <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -40,22 +43,22 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </Text>
-                <TextField fx:id="nomField" GridPane.rowIndex="1">
+                <TextField fx:id="nomField" GridPane.rowIndex="2">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </TextField>
-                <TextField fx:id="prenomField" prefHeight="25.0" prefWidth="319.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <TextField fx:id="prenomField" prefHeight="25.0" prefWidth="319.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </TextField>
-                <ComboBox fx:id="posteAnneeDropdown" prefHeight="22.0" prefWidth="173.0" promptText="Poste/Année" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <ComboBox fx:id="posteAnneeDropdown" prefHeight="22.0" prefWidth="173.0" promptText="Poste/Année" GridPane.columnIndex="2" GridPane.rowIndex="2">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="SI3" />
@@ -69,7 +72,7 @@
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </ComboBox>
-                <ComboBox fx:id="typeDropdown" prefHeight="25.0" prefWidth="150.0" promptText="Type incident" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                <ComboBox fx:id="typeDropdown" prefHeight="25.0" prefWidth="150.0" promptText="Type incident" GridPane.columnIndex="3" GridPane.rowIndex="2">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="Objet perdu" />
@@ -83,22 +86,22 @@
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </ComboBox>
-                <TextField fx:id="titreField" prefHeight="25.0" prefWidth="498.0" GridPane.columnSpan="3" GridPane.rowIndex="3">
+                <TextField fx:id="titreField" prefHeight="25.0" prefWidth="498.0" GridPane.columnSpan="3" GridPane.rowIndex="4">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </TextField>
-                <DatePicker fx:id="dateField" prefHeight="25.0" prefWidth="149.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                <DatePicker fx:id="dateField" prefHeight="25.0" prefWidth="149.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </DatePicker>
-                <TextArea fx:id="descriptionField" prefHeight="44.0" prefWidth="386.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="5">
+                <TextArea fx:id="descriptionField" prefHeight="44.0" prefWidth="386.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="6">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </TextArea>
-                <ComboBox fx:id="importanceDropdown" prefHeight="25.0" prefWidth="174.0" promptText="Importance de l'incident" GridPane.columnSpan="2" GridPane.rowIndex="8">
+                <ComboBox fx:id="importanceDropdown" prefHeight="25.0" prefWidth="174.0" promptText="Importance de l'incident" GridPane.columnSpan="2" GridPane.rowIndex="9">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="Faible" />
@@ -111,59 +114,59 @@
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </ComboBox>
-                <TextField fx:id="batimentField" prefHeight="25.0" prefWidth="319.0" GridPane.columnIndex="3" GridPane.rowIndex="8">
+                <TextField fx:id="batimentField" prefHeight="25.0" prefWidth="319.0" GridPane.columnIndex="3" GridPane.rowIndex="9">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </TextField>
-                <TextField fx:id="salleField" prefHeight="25.0" prefWidth="319.0" GridPane.columnIndex="3" GridPane.rowIndex="9">
+                <TextField fx:id="salleField" prefHeight="25.0" prefWidth="319.0" GridPane.columnIndex="3" GridPane.rowIndex="10">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </TextField>
-                <TextField fx:id="detailsField" GridPane.columnIndex="3" GridPane.rowIndex="10">
+                <TextField fx:id="detailsField" GridPane.columnIndex="3" GridPane.rowIndex="11">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </TextField>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom" GridPane.columnIndex="1">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date" GridPane.columnIndex="3" GridPane.rowIndex="3">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Poste/Année" GridPane.columnIndex="2">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Poste/Année" GridPane.columnIndex="2" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Titre incident" GridPane.rowIndex="2">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Titre incident" GridPane.rowIndex="3">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description" GridPane.rowIndex="4">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description" GridPane.rowIndex="5">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Importance de l'incident" textAlignment="CENTER" wrappingWidth="132.49609375" GridPane.rowIndex="7">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Importance de l'incident" textAlignment="CENTER" wrappingWidth="132.49609375" GridPane.rowIndex="8">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Localisation" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Localisation" GridPane.columnIndex="2" GridPane.rowIndex="8">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Batiment" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Salle" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-                <Button fx:id="validButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" text="Valider" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Batiment" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Salle" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                <Button fx:id="validButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" text="Valider" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="13">
                     <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </GridPane.margin>
@@ -171,17 +174,26 @@
                   <Insets />
                </opaqueInsets>
                 </Button>
-                <Button fx:id="retourButton" mnemonicParsing="false" text="Retour" GridPane.rowIndex="12">
+                <Button fx:id="retourButton" mnemonicParsing="false" text="Retour" GridPane.rowIndex="13">
                     <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </GridPane.margin>
                 </Button>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Détails" GridPane.columnIndex="2" GridPane.rowIndex="10" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type incident" GridPane.columnIndex="3">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Détails" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type incident" GridPane.columnIndex="3" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </Text>
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="30.0" prefWidth="474.0" styleClass="titleBar" stylesheets="/styles/global.css" GridPane.columnSpan="2147483647">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" styleClass="titleBar" stylesheets="/styles/global.css" text="Déclaration d'un incident" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </FlowPane>
             </children>
         </GridPane>
     </children>

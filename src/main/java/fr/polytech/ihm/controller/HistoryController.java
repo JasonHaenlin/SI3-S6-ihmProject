@@ -64,9 +64,7 @@ public class HistoryController {
 
         filter.getItems().setAll(FilterBy.values());
         ObservableList<Incident> incidents = FXCollections.observableArrayList();
-        for (Incident incident : IncidentManager.getIncidentList()) {
-            incidents.add(incident);
-        }
+        incidents.addAll(IncidentManager.getIncidentList());
 
         titreCol.setCellValueFactory(cellData -> cellData.getValue().titreProperty());
         typeCol.setCellValueFactory(cellData -> cellData.getValue().typeProperty());

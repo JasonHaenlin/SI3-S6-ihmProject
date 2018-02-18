@@ -6,7 +6,6 @@ package fr.polytech.ihm.controller;
 import fr.polytech.ihm.model.IncidentManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.LoadException;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
