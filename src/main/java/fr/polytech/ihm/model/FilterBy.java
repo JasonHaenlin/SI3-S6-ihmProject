@@ -5,6 +5,7 @@ import javafx.beans.property.StringProperty;
 
 public enum FilterBy {
 
+    //@formater:off
     TITRE("Titre"),
     TYPE("Type"),
     IMPORTANCE("Importance"),
@@ -13,6 +14,7 @@ public enum FilterBy {
     NOM("Nom"),
     PRENOM("Prénom"),
     POSTE("Poste");
+    //@formater:on
 
     private final StringProperty posteannee;
 

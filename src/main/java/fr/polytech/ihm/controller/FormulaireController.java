@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Calendar;
 
 public class FormulaireController {
     private static final Logger log = LoggerFactory.getLogger(MainApp.class);
@@ -26,10 +27,10 @@ public class FormulaireController {
     private TextField prenomField;
 
     @FXML
-    private ComboBox posteAnneeDropdown;
+    private ComboBox<PosteAnnee> posteAnneeDropdown;
 
     @FXML
-    private ComboBox typeDropdown;
+    private ComboBox<Type> typeDropdown;
 
     @FXML
     private TextField titreField;
@@ -41,7 +42,7 @@ public class FormulaireController {
     private TextField descriptionField;
 
     @FXML
-    private ComboBox importanceDropdown;
+    private ComboBox<Importance> importanceDropdown;
 
     @FXML
     private TextField batimentField;
@@ -61,7 +62,6 @@ public class FormulaireController {
     @FXML
     private Label champs;
 
-
     @FXML
     public void initialize() {
         posteAnneeDropdown.getItems().setAll(PosteAnnee.values());
@@ -75,23 +75,22 @@ public class FormulaireController {
                 FXMLLoader loader = new FXMLLoader();
                 log.debug("Validate input");
                 try {
-                    submitForm();
-                    Stage stage = (Stage) validButton.getScene().getWindow();
-                    Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
+                    if (submitFormOk()) {
+                        Stage stage = (Stage) validButton.getScene().getWindow();
+                        Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
 
-                    Scene scene = new Scene(rootNode);
-                    stage.setScene(scene);
-                    stage.show();
+                        Scene scene = new Scene(rootNode);
+                        stage.setScene(scene);
+                        stage.show();
+                    } else {
+                        log.debug("CHAMP EN ROUGE");
+                        champs.setVisible(true);
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
-                } catch (NullPointerException e) {
-                    System.out.println("CHAMP EN ROUGE");
-                    e.printStackTrace();
-                    champs.setVisible(true);
                 }
             }
         });
-
         retourButton.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) {
 
@@ -113,33 +112,57 @@ public class FormulaireController {
 
     }
 
-    public void submitForm() {
-        StringProperty nom = new SimpleStringProperty(nomField.getText());
-        StringProperty prenom = new SimpleStringProperty(prenomField.getText());
-        StringProperty details = new SimpleStringProperty(detailsField.getText());
-        StringProperty titre = new SimpleStringProperty(titreField.getText());
-        StringProperty description = new SimpleStringProperty(descriptionField.getText());
-        StringProperty salle = new SimpleStringProperty(salleField.getText());
-        StringProperty batiment = new SimpleStringProperty(batimentField.getText());
-        StringProperty posteAnnee = new SimpleStringProperty(posteAnneeDropdown.getValue().toString());
-        StringProperty importance = null;
-        try {
-            importance = new SimpleStringProperty(importanceDropdown.getValue().toString());
-        } catch (NullPointerException e) {
-        }
+    private boolean submitFormOk() {
 
-        StringProperty type = new SimpleStringProperty(typeDropdown.getValue().toString());
+        boolean reboot = false;
+
         LocalDate date = dateField.getValue();
+        Calendar cal = Calendar.getInstance();
+
+        StringProperty nom = null;//required field
+        StringProperty prenom = null;//required field
+        StringProperty titre = null;//required field
+        StringProperty description = null;//required field
+        StringProperty posteAnnee = null; //required field
+        StringProperty type = null; //required field
+        StringProperty salle = null;
+        StringProperty batiment = null;
+        StringProperty details = null;
+        StringProperty importance = null;
         StringProperty dateString = null;
+
+        try {
+            nom = new SimpleStringProperty(nomField.getText());
+            prenom = new SimpleStringProperty(prenomField.getText());
+            titre = new SimpleStringProperty(titreField.getText());
+            description = new SimpleStringProperty(descriptionField.getText());
+            type = new SimpleStringProperty(typeDropdown.getValue().toString());
+            posteAnnee = new SimpleStringProperty(posteAnneeDropdown.getValue().toString());
+        } catch (NullPointerException e) {
+            log.error("required field needed");
+            reboot = true;
+        }
         try {
             dateString = new SimpleStringProperty(date.toString());
+            salle = new SimpleStringProperty(salleField.getText());
+            batiment = new SimpleStringProperty(batimentField.getText());
+            details = new SimpleStringProperty(detailsField.getText());
+            importance = new SimpleStringProperty(importanceDropdown.getValue().toString());
         } catch (NullPointerException e) {
-
+            dateString = new SimpleStringProperty(cal.getTime().toString());
+            salle = new SimpleStringProperty(" ");
+            batiment = new SimpleStringProperty(" ");
+            details = new SimpleStringProperty(" ");
+            importance = new SimpleStringProperty(Importance.MODEREE.toString());
         }
 
-        Incident incident = new Incident(nom, prenom, posteAnnee, type, titre, dateString, description, importance, batiment, salle, details);
-        IncidentManager.addIncident(incident);
-        IncidentManager.saveIncidentList();
+        if (!reboot) {
+            Incident incident = new Incident(nom, prenom, posteAnnee, type, titre, dateString, description, importance,
+                    batiment, salle, details);
+            IncidentManager.addIncident(incident);
+            IncidentManager.saveIncidentList();
+        }
+        return !reboot;
 
     }
 
