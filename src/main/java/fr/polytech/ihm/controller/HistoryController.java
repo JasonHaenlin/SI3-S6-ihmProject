@@ -1,6 +1,5 @@
 package fr.polytech.ihm.controller;
 
-import fr.polytech.ihm.model.FilterBy;
 import fr.polytech.ihm.model.Incident;
 import fr.polytech.ihm.model.IncidentManager;
 import javafx.collections.FXCollections;
@@ -10,7 +9,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableRow;
@@ -23,9 +21,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class HistoryController {
-
-    @FXML
-    private ComboBox<FilterBy> filter;
 
     @FXML
     private ImageView recherch;
@@ -65,7 +60,6 @@ public class HistoryController {
     @FXML
     public void initialize() {
 
-        filter.getItems().setAll(FilterBy.values());
         ObservableList<Incident> incidents = FXCollections.observableArrayList();
         incidents.addAll(IncidentManager.getIncidentList());
 
