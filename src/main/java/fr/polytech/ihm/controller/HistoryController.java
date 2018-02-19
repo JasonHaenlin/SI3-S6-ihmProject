@@ -13,13 +13,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TableRow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import java.io.IOException;
-import javafx.util.Callback;
-import javafx.scene.control.TableCell;
-import javafx.event.EventHandler;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class HistoryController {
 
@@ -59,6 +60,8 @@ public class HistoryController {
     @FXML
     private Button retour;
 
+    private static final Logger log = LoggerFactory.getLogger(HistoryController.class);
+
     @FXML
     public void initialize() {
 
@@ -94,6 +97,31 @@ public class HistoryController {
                 }
             }
         });
+        table.setRowFactory(tv -> {
+            TableRow<Incident> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                    String fxmlFile = "/fxml/recapForm.fxml";
+                    FXMLLoader loader = new FXMLLoader();
+                    try {
+                        Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
+                        RecapWindow controller = loader.<RecapWindow>getController();
+                        try {
+                            log.info(row.getItem().getNom());
+                        } catch (Exception e) {
+                            log.error("class null (before new form)");
+                        }
+                        controller.initData(row);
+                        Stage stage = (Stage) retour.getScene().getWindow();
+                        Scene scene = new Scene(rootNode);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            return row;
+        });
     }
-
 }

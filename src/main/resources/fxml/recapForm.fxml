@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <VBox alignment="TOP_CENTER" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" stylesheets="/styles/homePage.css" prefWidth="735.0" 
   xmlns="http://javafx.com/javafx/9.0.1" 
-  xmlns:fx="http://javafx.com/fxml/1" fx:controller="RecapWindow">
+  xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.RecapWindow">
   <children>
     <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="30.0" prefWidth="645.0" style="-fx-background-color: #8ADAFF;">
       <children>
