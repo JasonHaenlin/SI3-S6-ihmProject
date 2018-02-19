@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -9,8 +8,9 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
-<VBox alignment="TOP_CENTER" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="735.0" stylesheets="/styles/askValidation.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.RecapWindow">
+<VBox alignment="TOP_CENTER" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="735.0" stylesheets="/styles/global.css" 
+  xmlns="http://javafx.com/javafx/9.0.1" 
+  xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.RecapWindow">
   <children>
     <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="30.0" prefWidth="645.0" styleClass="titleBar" stylesheets="@../styles/global.css">
       <children>

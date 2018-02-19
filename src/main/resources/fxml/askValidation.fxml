@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<VBox alignment="TOP_CENTER" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="735.0" styleClass="ValidationForm" stylesheets="/styles/askValidation.css" 
+<VBox alignment="TOP_CENTER" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="735.0" styleClass="ValidationForm" stylesheets="/styles/global.css" 
   xmlns="http://javafx.com/javafx/8.0.121" 
   xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.ValidationWindow">
   <children>
-    <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="30.0" prefWidth="645.0" styleClass="titleBar" stylesheets="/styles/askValidation.css">
+    <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="30.0" prefWidth="645.0" styleClass="titleBar" stylesheets="/styles/global.css">
       <children>
         <Label fx:id="askValidadLabel" alignment="CENTER" contentDisplay="CENTER" styleClass="ValidationForm" text="Valider ?" textAlignment="CENTER">
           <font>
