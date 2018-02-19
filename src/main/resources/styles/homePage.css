@@ -12,18 +12,16 @@
   -fx-font-weight: 900;
 }
 
-.button:hover {
-  -fx-background-color: #9cc4e4;
-  -fx-text-decoration: none;
-}
-
 .label {
   -fx-font-family: "Futura";
   -fx-font-weight: bold;
 }
 
 #declarationButton {
-  -fx-background-image: url(/images/plus.png);
+  -fx-background-image: url(/images/plusshadow.png);
+}
+#declarationButton:hover {
+  -fx-background-image: url(/images/plusshadowbis.png);
 }
 
 #visuLabel {
@@ -31,11 +29,10 @@
 }
 
 #visuButton {
-  -fx-background-image: url(/images/table-grid.png);
+  -fx-background-image: url(/images/table-gridshadow.png);
 }
-
-#vbox {
-  -fx-background-color: #ffffff;
+#visuButton:hover {
+  -fx-background-image: url(/images/table-gridshadowbis.png);
 }
 
 #background {
@@ -46,4 +43,9 @@
 
 #image {
   -fx-image-rendering: optimizeQuality;
+}
+
+#hbox {
+  -fx-image-rendering: optimizeQuality;
+  -fx-background-color: #e9f2f9;
 }
