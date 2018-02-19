@@ -194,12 +194,6 @@ public class FormulaireController {
             Incident incident = new Incident(nom, prenom, posteAnnee, type, titre, dateString, description, importance,
                     batiment, salle, details);
             IncidentManager.addIncident(incident);
-            try {
-                IncidentManager.saveIncidentList();
-            } catch (IOException e) {
-                System.err.println("Erreur lors de la sauvegarde du formulaire");
-                e.printStackTrace();
-            }
         } else {
             log.error("required field needed");
             log.debug("CHAMP EN ROUGE");
