@@ -1,22 +1,29 @@
- .titleBar {
-    -fx-background-color :  #3A89C9;
- }
+.titleBar {
+  -fx-background-color: #3a89c9;
+}
 
- #retour {
-    -fx-background-size: 60%;
-     -fx-background-repeat: no-repeat;
-     -fx-background-position: center;
-     -fx-background-image: url(/images/return.png);
- }
+.button:hover {
+  -fx-background-color: #9cc4e4;
+}
 
- .button {
-     -fx-background-size: 40px;
-     -fx-background-repeat: no-repeat;
- }
+#retour {
+  -fx-background-size: 60%;
+  -fx-background-repeat: no-repeat;
+  -fx-background-position: center;
+  -fx-background-image: url(/images/return.png);
+}
+
+.button {
+  -fx-background-color: #e9f2f9;
+  -fx-text-fill: #e1f5fe;
+  -fx-font-weight: 900;
+  -fx-background-size: 40px;
+  -fx-background-repeat: no-repeat;
+}
 
 #loupeButton {
-    -fx-background-size: 60%;
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-    -fx-background-image: url(/images/loupe.png);
+  -fx-background-size: 60%;
+  -fx-background-repeat: no-repeat;
+  -fx-background-position: center;
+  -fx-background-image: url(/images/loupe.png);
 }

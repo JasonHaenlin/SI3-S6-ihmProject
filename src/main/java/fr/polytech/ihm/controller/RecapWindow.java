@@ -1,15 +1,23 @@
 package fr.polytech.ihm.controller;
 
 import fr.polytech.ihm.model.Incident;
+import java.io.IOException;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseButton;
+
+import javafx.stage.Stage;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -66,7 +74,11 @@ public class RecapWindow {
 
     @FXML
     public void initialize() {
-        /*ObservableList<Incident> incidents = FXCollections.observableArrayList();
+    }
+
+    public void initData(TableRow<Incident> row) {
+        incidentObject = row.getItem();
+        ObservableList<Incident> incidents = FXCollections.observableArrayList();
         incidents.add(incidentObject);
         try {
             location.setCellValueFactory(
@@ -81,16 +93,29 @@ public class RecapWindow {
         name.setCellValueFactory(cellData -> cellData.getValue().prenomProperty());
         occupation.setCellValueFactory(cellData -> cellData.getValue().posteAnneeProperty());
         recapArray.setItems(incidents);
-        descriptionText.setText(incidents.get(0).getDescription());*/
-        try {
-            log.info(incidentObject.getNom());
-        } catch (Exception e) {
-            log.error("class null");
-        }
+        descriptionText.setText(incidents.get(0).getDescription());
+        event();
     }
 
-    public void initData(TableRow<Incident> row) {
-        incidentObject = row.getItem();
+    @FXML
+    public void event() {
+        returnButton.setOnMouseClicked(event -> {
+            if (event.getButton() == MouseButton.PRIMARY) {
+
+                String fxmlFile = "/fxml/history.fxml";
+                FXMLLoader loader = new FXMLLoader();
+                try {
+                    Stage stage = (Stage) returnButton.getScene().getWindow();
+                    Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
+
+                    Scene scene = new Scene(rootNode);
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
 }

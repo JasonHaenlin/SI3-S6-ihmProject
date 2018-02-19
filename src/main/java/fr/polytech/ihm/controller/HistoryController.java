@@ -105,6 +105,9 @@ public class HistoryController {
                     FXMLLoader loader = new FXMLLoader();
                     try {
                         Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
+                        Stage stage = (Stage) retour.getScene().getWindow();
+                        Scene scene = new Scene(rootNode);
+                        stage.setScene(scene);
                         RecapWindow controller = loader.<RecapWindow>getController();
                         try {
                             log.info(row.getItem().getNom());
@@ -112,9 +115,6 @@ public class HistoryController {
                             log.error("class null (before new form)");
                         }
                         controller.initData(row);
-                        Stage stage = (Stage) retour.getScene().getWindow();
-                        Scene scene = new Scene(rootNode);
-                        stage.setScene(scene);
                         stage.show();
                     } catch (IOException e) {
                         e.printStackTrace();
