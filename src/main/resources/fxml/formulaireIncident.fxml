@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="465.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.FormulaireController">
+<VBox prefHeight="465.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.FormulaireController">
     <children>
         <GridPane>
             <columnConstraints>
@@ -37,13 +37,16 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" GridPane.rowIndex="1">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom(*)" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
@@ -72,7 +75,7 @@
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </ComboBox>
-                <ComboBox fx:id="typeDropdown" prefHeight="25.0" prefWidth="150.0" promptText="Type incident" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                <ComboBox fx:id="typeDropdown" prefHeight="25.0" prefWidth="150.0" promptText="Type incident(*)" GridPane.columnIndex="3" GridPane.rowIndex="2">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="Objet perdu" />
@@ -119,17 +122,17 @@
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </TextField>
-                <TextField fx:id="salleField" prefHeight="25.0" prefWidth="319.0" GridPane.columnIndex="3" GridPane.rowIndex="10">
+                <TextField fx:id="salleField" prefHeight="25.0" prefWidth="319.0" GridPane.columnIndex="3" GridPane.rowIndex="11">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </TextField>
-                <TextField fx:id="detailsField" GridPane.columnIndex="3" GridPane.rowIndex="11">
+                <TextField fx:id="detailsField" GridPane.columnIndex="3" GridPane.rowIndex="13">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </TextField>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom(*)" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
@@ -139,17 +142,17 @@
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Poste/Année" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Poste/Année(*)" GridPane.columnIndex="2" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Titre incident" GridPane.rowIndex="3">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Titre incident(*)" GridPane.rowIndex="3">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
                 </Text>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description" GridPane.rowIndex="5">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description(*)" GridPane.rowIndex="5">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                     </GridPane.margin>
@@ -165,8 +168,10 @@
                     </font>
                 </Text>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Batiment" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Salle" GridPane.columnIndex="2" GridPane.rowIndex="10" />
-                <Button fx:id="validButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" text="Valider" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="13">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Salle" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+                <Label id="champs" fx:id="champs" stylesheets="/styles/askValidation.css" text="*Champs Obligatoires" textFill="RED" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="12" />
+
+                <Button fx:id="validButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" text="Valider" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="15">
                     <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </GridPane.margin>
@@ -174,12 +179,12 @@
                   <Insets />
                </opaqueInsets>
                 </Button>
-                <Button fx:id="retourButton" mnemonicParsing="false" text="Retour" GridPane.rowIndex="13">
+                <Button fx:id="returnButton" mnemonicParsing="false" text="Retour" GridPane.rowIndex="15">
                     <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </GridPane.margin>
                 </Button>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Détails" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Détails" GridPane.columnIndex="2" GridPane.rowIndex="13" />
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type incident" GridPane.columnIndex="3" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
