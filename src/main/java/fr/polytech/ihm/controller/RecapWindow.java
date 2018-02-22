@@ -123,7 +123,6 @@ public class RecapWindow {
                 String fxmlFile = "/fxml/history.fxml";
                 FXMLLoader loader = new FXMLLoader();
                 try {
-
                     IncidentManager.deleteIncident(incidentObject);
                     log.debug("REGARDE ICI ");
                     log.debug(IncidentManager.getIncidentList().toString());
