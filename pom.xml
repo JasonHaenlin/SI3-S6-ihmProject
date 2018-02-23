@@ -56,12 +56,6 @@
         </plugins>
     </build>
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/com.intellij/annotations -->
-        <dependency>
-            <groupId>com.intellij</groupId>
-            <artifactId>annotations</artifactId>
-            <version>12.0</version>
-        </dependency>
         <!-- MigLayout -->
         <dependency>
             <groupId>com.miglayout</groupId>

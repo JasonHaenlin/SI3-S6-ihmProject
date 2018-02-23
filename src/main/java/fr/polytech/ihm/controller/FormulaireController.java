@@ -186,11 +186,11 @@ public class FormulaireController {
         } catch (NullPointerException e) {
             importance = new SimpleStringProperty(Importance.MODEREE.toString());
         }
-
+        log.debug("location start");
         salle = new SimpleStringProperty(salleField.getText());
         batiment = new SimpleStringProperty(batimentField.getText());
         details = new SimpleStringProperty(detailsField.getText());
-
+        log.debug("location end");
         //--------//
         if (!reboot) {
             Incident incident = new Incident(nom, prenom, posteAnnee, type, titre, dateString, description, importance,

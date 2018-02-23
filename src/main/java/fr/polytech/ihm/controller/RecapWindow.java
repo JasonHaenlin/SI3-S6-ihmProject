@@ -25,7 +25,6 @@ import javafx.stage.Stage;
 public class RecapWindow {
 
     private static final Logger log = LoggerFactory.getLogger(RecapWindow.class);
-
     @FXML
     private Label recapTitleLabel;
 
@@ -33,31 +32,28 @@ public class RecapWindow {
     private Label recapLabel;
 
     @FXML
-    private TableView<Incident> recapArray;
+    private Label title;
 
     @FXML
-    private TableColumn<Incident, String> title;
+    private Label famillyName;
 
     @FXML
-    private TableColumn<Incident, String> mishapType;
+    private Label name;
 
     @FXML
-    private TableColumn<Incident, String> seriousness;
+    private Label mishapType;
 
     @FXML
-    private TableColumn<Incident, String> date;
+    private Label date;
 
     @FXML
-    private TableColumn<Incident, String> location;
+    private Label occupation;
 
     @FXML
-    private TableColumn<Incident, String> famillyName;
+    private Label seriousness;
 
     @FXML
-    private TableColumn<Incident, String> name;
-
-    @FXML
-    private TableColumn<Incident, String> occupation;
+    private Label geo;
 
     @FXML
     private Label descriptionLabel;
@@ -69,41 +65,33 @@ public class RecapWindow {
     private Button returnButton;
 
     @FXML
+    private Label returnLabel;
+
+    @FXML
     private Button deleteButton;
 
     @FXML
-    private Label returnLabel;
+    private Label deleteLabel;
 
-    private Incident incidentObject;
-
-    private IncidentManager incidentManager;
+    Incident incidents;
 
     @FXML
     public void initialize() {
     }
 
     public void initData(TableRow<Incident> row) {
-        incidentObject = row.getItem();
-        ObservableList<Incident> incidents = FXCollections.observableArrayList();
-        incidents.add(incidentObject);
+        incidents = row.getItem();
 
-        log.info(incidentObject.getBatiment());
-        log.info(incidents.get(0).getBatiment());
-        log.info(incidents.get(0).locationProperty().toString());
-        try {
-            location.setCellValueFactory(cellData -> cellData.getValue().locationProperty());
-        } catch (Exception e) {
-            //TODO: handle exception
-        }
-        title.setCellValueFactory(cellData -> cellData.getValue().titreProperty());
-        mishapType.setCellValueFactory(cellData -> cellData.getValue().typeProperty());
-        seriousness.setCellValueFactory(cellData -> cellData.getValue().importanceProperty());
-        date.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
-        famillyName.setCellValueFactory(cellData -> cellData.getValue().nomProperty());
-        name.setCellValueFactory(cellData -> cellData.getValue().prenomProperty());
-        occupation.setCellValueFactory(cellData -> cellData.getValue().posteAnneeProperty());
-        recapArray.setItems(incidents);
-        descriptionText.setText(incidents.get(0).getDescription());
+        geo.setText(incidents.getLocation());
+        title.setText(incidents.getTitre());
+        mishapType.setText(incidents.getType());
+        seriousness.setText(incidents.getImportance());
+        date.setText(incidents.getDate());
+        famillyName.setText(incidents.getNom());
+        name.setText(incidents.getPrenom());
+        occupation.setText(incidents.getPosteAnnee());
+        descriptionText.setText(incidents.getDescription());
+        descriptionText.setText(incidents.getDescription());
         event();
     }
 
@@ -133,7 +121,7 @@ public class RecapWindow {
                 String fxmlFile = "/fxml/history.fxml";
                 FXMLLoader loader = new FXMLLoader();
                 try {
-                    IncidentManager.deleteIncident(incidentObject);
+                    IncidentManager.deleteIncident(incidents);
                     log.debug("REGARDE ICI ");
                     log.debug(IncidentManager.getIncidentList().toString());
                     IncidentManager.saveIncidentList();

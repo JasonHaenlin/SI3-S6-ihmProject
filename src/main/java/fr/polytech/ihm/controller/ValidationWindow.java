@@ -49,7 +49,7 @@ public class ValidationWindow {
     private Label seriousness;
 
     @FXML
-    private Label location;
+    private Label geo;
 
     @FXML
     private Label descriptionLabel;
@@ -75,11 +75,8 @@ public class ValidationWindow {
         Incident incidents;
 
         incidents = IncidentManager.getIncidentList().get(IncidentManager.getIncidentList().size() - 1);
-        try {
-            location.setText(incidents.getLocation());
-        } catch (Exception e) {
-            //TODO: handle exception
-        }
+
+        geo.setText(incidents.getLocation());
         title.setText(incidents.getTitre());
         mishapType.setText(incidents.getType());
         seriousness.setText(incidents.getImportance());

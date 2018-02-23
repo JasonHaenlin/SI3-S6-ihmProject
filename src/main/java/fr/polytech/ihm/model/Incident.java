@@ -181,6 +181,6 @@ public class Incident implements Serializable {
     }
 
     public String getLocation() {
-        return batiment + "\n" + salle + "\n" + details;
+        return batiment.get() + "\n" + salle.get() + "\n" + details.get();
     }
 }
