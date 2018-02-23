@@ -1,14 +1,19 @@
 package fr.polytech.ihm.model;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Incident implements Serializable {
+
+    private static final Logger log = LoggerFactory.getLogger(Incident.class);
 
     private transient StringProperty nom;
     private transient StringProperty prenom;
@@ -168,5 +173,14 @@ public class Incident implements Serializable {
 
     public StringProperty detailsProperty() {
         return details;
+    }
+
+    public StringProperty locationProperty() {
+        StringProperty sp = new SimpleStringProperty(batiment.get() + "-" + salle.get() + "-" + details.get());
+        return sp;
+    }
+
+    public String getLocation() {
+        return batiment + " - " + salle + " - " + details;
     }
 }

@@ -1,5 +1,10 @@
 package fr.polytech.ihm.controller;
 
+import java.io.IOException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import fr.polytech.ihm.model.Incident;
 import fr.polytech.ihm.model.IncidentManager;
 import javafx.collections.FXCollections;
@@ -9,16 +14,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
 
 public class HistoryController {
 
@@ -67,12 +71,14 @@ public class HistoryController {
         typeCol.setCellValueFactory(cellData -> cellData.getValue().typeProperty());
         importanceCol.setCellValueFactory(cellData -> cellData.getValue().importanceProperty());
         dateCol.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
-        localisationCol.setCellValueFactory(
-                cellData -> (cellData.getValue().batimentProperty().concat(cellData.getValue().salleProperty())));
+        localisationCol.setCellValueFactory(cellData -> cellData.getValue().locationProperty());
         nomCol.setCellValueFactory(cellData -> cellData.getValue().nomProperty());
         prenomCol.setCellValueFactory(cellData -> cellData.getValue().prenomProperty());
         posteCol.setCellValueFactory(cellData -> cellData.getValue().posteAnneeProperty());
         table.setItems(incidents);
+
+        wrapLines(localisationCol);
+        wrapLines(titreCol);
 
         retour.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) {
@@ -116,6 +122,18 @@ public class HistoryController {
                 }
             });
             return row;
+        });
+    }
+
+    private void wrapLines(TableColumn<Incident, String> col) {
+        col.setCellFactory(tc -> {
+            TableCell<Incident, String> cell = new TableCell<>();
+            Text text = new Text();
+            cell.setGraphic(text);
+            cell.setPrefHeight(Control.USE_COMPUTED_SIZE);
+            text.wrappingWidthProperty().bind(col.widthProperty());
+            text.textProperty().bind(cell.itemProperty());
+            return cell;
         });
     }
 }

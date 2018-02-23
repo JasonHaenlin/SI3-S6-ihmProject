@@ -1,5 +1,10 @@
 package fr.polytech.ihm.controller;
 
+import java.io.IOException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import fr.polytech.ihm.model.Incident;
 import fr.polytech.ihm.model.IncidentManager;
 import javafx.collections.FXCollections;
@@ -8,13 +13,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
 
 public class RecapWindow {
 
@@ -80,10 +86,14 @@ public class RecapWindow {
         incidentObject = row.getItem();
         ObservableList<Incident> incidents = FXCollections.observableArrayList();
         incidents.add(incidentObject);
+
+        log.info(incidentObject.getBatiment());
+        log.info(incidents.get(0).getBatiment());
+        log.info(incidents.get(0).locationProperty().toString());
         try {
-            location.setCellValueFactory(
-                    cellData -> (cellData.getValue().batimentProperty().concat(cellData.getValue().salleProperty())));
+            location.setCellValueFactory(cellData -> cellData.getValue().locationProperty());
         } catch (Exception e) {
+            //TODO: handle exception
         }
         title.setCellValueFactory(cellData -> cellData.getValue().titreProperty());
         mishapType.setCellValueFactory(cellData -> cellData.getValue().typeProperty());

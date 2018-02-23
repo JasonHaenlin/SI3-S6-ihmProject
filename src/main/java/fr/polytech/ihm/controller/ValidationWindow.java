@@ -1,25 +1,25 @@
 package fr.polytech.ihm.controller;
 
+import java.io.IOException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import fr.polytech.ihm.model.Incident;
 import fr.polytech.ihm.model.IncidentManager;
-import javafx.collections.ObservableList;
-import javafx.collections.FXCollections;
-import fr.polytech.ihm.MainApp;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
 
 public class ValidationWindow {
 
-    private static final Logger log = LoggerFactory.getLogger(MainApp.class);
+    private static final Logger log = LoggerFactory.getLogger(ValidationWindow.class);
 
     @FXML
     private Label askValidadLabel;
@@ -28,31 +28,28 @@ public class ValidationWindow {
     private Label recapLabel;
 
     @FXML
-    private TableView<Incident> recapArray;
+    private Label title;
 
     @FXML
-    private TableColumn<Incident, String> title;
+    private Label name;
 
     @FXML
-    private TableColumn<Incident, String> mishapType;
+    private Label famillyName;
 
     @FXML
-    private TableColumn<Incident, String> seriousness;
+    private Label mishapType;
 
     @FXML
-    private TableColumn<Incident, String> date;
+    private Label date;
 
     @FXML
-    private TableColumn<Incident, String> location;
+    private Label occupation;
 
     @FXML
-    private TableColumn<Incident, String> famillyName;
+    private Label seriousness;
 
     @FXML
-    private TableColumn<Incident, String> name;
-
-    @FXML
-    private TableColumn<Incident, String> occupation;
+    private Label location;
 
     @FXML
     private Label descriptionLabel;
@@ -75,25 +72,22 @@ public class ValidationWindow {
     @FXML
     public void initialize() {
 
-        ObservableList<Incident> incidents = FXCollections.observableArrayList();
+        Incident incidents;
 
-        incidents.add(IncidentManager.getIncidentList().get(IncidentManager.getIncidentList().size() - 1));
-
+        incidents = IncidentManager.getIncidentList().get(IncidentManager.getIncidentList().size() - 1);
         try {
-            location.setCellValueFactory(
-                    cellData -> (cellData.getValue().batimentProperty().concat(cellData.getValue().salleProperty())));
+            location.setText(incidents.getLocation());
         } catch (Exception e) {
+            //TODO: handle exception
         }
-        title.setCellValueFactory(cellData -> cellData.getValue().titreProperty());
-        mishapType.setCellValueFactory(cellData -> cellData.getValue().typeProperty());
-        seriousness.setCellValueFactory(cellData -> cellData.getValue().importanceProperty());
-        date.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
-        famillyName.setCellValueFactory(cellData -> cellData.getValue().nomProperty());
-        name.setCellValueFactory(cellData -> cellData.getValue().prenomProperty());
-        occupation.setCellValueFactory(cellData -> cellData.getValue().posteAnneeProperty());
-        recapArray.setItems(incidents);
-
-        descriptionText.setText(incidents.get(0).getDescription());
+        title.setText(incidents.getTitre());
+        mishapType.setText(incidents.getType());
+        seriousness.setText(incidents.getImportance());
+        date.setText(incidents.getDate());
+        famillyName.setText(incidents.getNom());
+        name.setText(incidents.getPrenom());
+        occupation.setText(incidents.getPosteAnnee());
+        descriptionText.setText(incidents.getDescription());
 
         log.debug("Validation page");
         validButton.setOnMouseClicked(event -> {

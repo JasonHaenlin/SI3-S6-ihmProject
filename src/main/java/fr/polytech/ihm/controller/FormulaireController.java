@@ -178,17 +178,19 @@ public class FormulaireController {
         //--------//
         try {
             dateString = new SimpleStringProperty(date.toString());
-            salle = new SimpleStringProperty(salleField.getText());
-            batiment = new SimpleStringProperty(batimentField.getText());
-            details = new SimpleStringProperty(detailsField.getText());
-            importance = new SimpleStringProperty(importanceDropdown.getValue().toString());
         } catch (NullPointerException e) {
             dateString = new SimpleStringProperty(cal.getTime().toString());
-            salle = new SimpleStringProperty(" ");
-            batiment = new SimpleStringProperty(" ");
-            details = new SimpleStringProperty(" ");
+        }
+        try {
+            importance = new SimpleStringProperty(importanceDropdown.getValue().toString());
+        } catch (NullPointerException e) {
             importance = new SimpleStringProperty(Importance.MODEREE.toString());
         }
+
+        salle = new SimpleStringProperty(salleField.getText());
+        batiment = new SimpleStringProperty(batimentField.getText());
+        details = new SimpleStringProperty(detailsField.getText());
+
         //--------//
         if (!reboot) {
             Incident incident = new Incident(nom, prenom, posteAnnee, type, titre, dateString, description, importance,

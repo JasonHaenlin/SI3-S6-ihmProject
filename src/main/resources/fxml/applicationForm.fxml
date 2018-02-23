@@ -90,7 +90,10 @@
                                 <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                             </VBox.margin>
                         </Label>
-                        <TextArea fx:id="descriptionField" prefHeight="200.0" prefWidth="200.0" promptText="Description..." scrollLeft="1.0" wrapText="true" />
+                        <TextArea fx:id="descriptionField" prefHeight="200.0" prefWidth="200.0" promptText="Description..." scrollLeft="1.0" wrapText="true">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin></TextArea>
                     </children>
                 </VBox>
             </children>
