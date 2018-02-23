@@ -9,14 +9,14 @@ import javafx.beans.property.StringProperty;
 public enum Type {
 
     //@formatter:off
-    ELEC("Problème électrique"),
-    MAT("Problème matériel"),
+    ELEC("Probl\u00E8me \u00E9lectrique"),
+    MAT("Probl\u00E8me mat\u00E9riel"),
     OBJP("Objet perdu"),
-    OBJT("Objet trouvé"),
-    INFO("Problème informatique"),
-    WC("Problème toilettes"),
-    SALE("Saleté dans les batiments"),
-    CAR("Problème parking"),
+    OBJT("Objet trouv\u00E9"),
+    INFO("Probl\u00E8me informatique"),
+    WC("Probl\u00E8me toilettes"),
+    SALE("Salet\u00E9 dans les b\u00E2timents"),
+    CAR("Probl\u00E8me parking"),
     SALLE("Conflit salle"),
     AUTRE("Autre");
     //@formatter:on

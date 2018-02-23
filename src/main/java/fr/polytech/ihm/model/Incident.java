@@ -5,11 +5,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-import javafx.beans.binding.Bindings;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class Incident implements Serializable {
 
@@ -181,6 +181,6 @@ public class Incident implements Serializable {
     }
 
     public String getLocation() {
-        return "bâtiment: " + batiment.get() + "\nsalle: " + salle.get() + "\ndetails:" + details.get();
+        return "b\u00E2timent: " + batiment.get() + "\nsalle: " + salle.get() + "\ndetails: " + details.get();
     }
 }

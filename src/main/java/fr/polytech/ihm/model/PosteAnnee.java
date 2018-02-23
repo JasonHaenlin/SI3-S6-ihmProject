@@ -14,9 +14,9 @@ public enum PosteAnnee {
     STAGIAIRE("Stagiaire"),
     DOCTORANT("Doctorant"),
     PERSONNEL_ADMINISTRATIF("Personnel administratif"),
-    TROISIEME_ANNEE("3ème Année"),
-    QUATRIEME_ANNEE("4ème Année"),
-    CINQUIEME_ANNEE("5ème Année"),
+    TROISIEME_ANNEE("3\u00E8me Ann\u00E9e"),
+    QUATRIEME_ANNEE("4\u00E8me Ann\u00E9e"),
+    CINQUIEME_ANNEE("5\u00E8me Ann\u00E9e"),
     VISITEUR("Visiteur"),
     AUTRE("Autre");
     //@formatter:on

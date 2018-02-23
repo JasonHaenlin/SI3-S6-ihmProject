@@ -10,7 +10,7 @@ public enum Importance {
 
     //@formatter:off
     FAIBLE("Faible"),
-    MODEREE("Moderée"),
+    MODEREE("Moder\u00E9e"),
     GRAVE("Grave"),
     CRITIQUE("Critique");
     //@formatter:on
