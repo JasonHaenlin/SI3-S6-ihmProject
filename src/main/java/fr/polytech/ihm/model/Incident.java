@@ -176,11 +176,11 @@ public class Incident implements Serializable {
     }
 
     public StringProperty locationProperty() {
-        StringProperty sp = new SimpleStringProperty(batiment.get() + "-" + salle.get() + "-" + details.get());
+        StringProperty sp = new SimpleStringProperty(batiment.get() + "\n" + salle.get() + "\n" + details.get());
         return sp;
     }
 
     public String getLocation() {
-        return batiment + " - " + salle + " - " + details;
+        return batiment + "\n" + salle + "\n" + details;
     }
 }
