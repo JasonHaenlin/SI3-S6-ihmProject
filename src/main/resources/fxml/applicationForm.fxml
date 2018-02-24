@@ -25,7 +25,7 @@
         </FlowPane>
         <FlowPane prefHeight="115.0" prefWidth="600.0">
             <children>
-                <VBox fillWidth="false" prefWidth="130.0">
+                <VBox prefWidth="130.0">
                     <children>
                         <Label id="label" styleClass="ApplicationForm" text="Nom*" />
                         <TextField id="TextField" fx:id="nomField" promptText="nom...." styleClass="ApplicationForm" />
@@ -45,7 +45,7 @@
                 </VBox>
                 <VBox prefWidth="130.0">
                     <children>
-                        <Label id="label" styleClass="ApplicationForm" text="Profession*" />
+                        <Label id="label" fx:id="posteLabel" styleClass="ApplicationForm" text="Profession*" />
                         <ComboBox id="TextField" fx:id="posteAnneeDropdown" prefWidth="150.0" promptText="choisir...." styleClass="ApplicationForm" />
                     </children>
                     <FlowPane.margin>

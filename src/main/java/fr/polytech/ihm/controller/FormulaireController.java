@@ -1,22 +1,34 @@
 package fr.polytech.ihm.controller;
 
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Calendar;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import fr.polytech.ihm.MainApp;
-import fr.polytech.ihm.model.*;
+import fr.polytech.ihm.effect.Shaker;
+import fr.polytech.ihm.model.Importance;
+import fr.polytech.ihm.model.Incident;
+import fr.polytech.ihm.model.IncidentManager;
+import fr.polytech.ihm.model.PosteAnnee;
+import fr.polytech.ihm.model.Type;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseButton;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
-import java.time.LocalDate;
-import java.util.Calendar;
 
 public class FormulaireController {
     private static final Logger log = LoggerFactory.getLogger(MainApp.class);
@@ -46,6 +58,9 @@ public class FormulaireController {
     private TextArea descriptionField;
 
     @FXML
+    private Label posteLabel;
+
+    @FXML
     private ComboBox<Importance> importanceDropdown;
 
     @FXML
@@ -66,8 +81,16 @@ public class FormulaireController {
     @FXML
     private Label champs;
 
+    Shaker shNom = new Shaker();
+    Shaker shPrenom = new Shaker();
+    Shaker shPoste = new Shaker();
+    Shaker shDescripction = new Shaker();
+    Shaker shTitre = new Shaker();
+    Shaker shType = new Shaker();
+
     @FXML
     public void initialize() {
+
         posteAnneeDropdown.getItems().setAll(PosteAnnee.values());
         typeDropdown.getItems().setAll(Type.values());
         importanceDropdown.getItems().setAll(Importance.values());
@@ -135,6 +158,7 @@ public class FormulaireController {
         nom = new SimpleStringProperty(nomField.getText());
         if (nom.getValue().isEmpty()) {
             nomField.setStyle(WARNING_COLOR);
+            shNom.shake(nomField);
             reboot = true;
         } else
             nomField.setStyle(NO_WARNING_COLOR);
@@ -142,6 +166,7 @@ public class FormulaireController {
         prenom = new SimpleStringProperty(prenomField.getText());
         if (prenom.getValue().isEmpty()) {
             prenomField.setStyle(WARNING_COLOR);
+            shPrenom.shake(prenomField);
             reboot = true;
         } else
             prenomField.setStyle(NO_WARNING_COLOR);
@@ -149,6 +174,7 @@ public class FormulaireController {
         titre = new SimpleStringProperty(titreField.getText());
         if (titre.getValue().isEmpty()) {
             titreField.setStyle(WARNING_COLOR);
+            shTitre.shake(titreField);
             reboot = true;
         } else
             titreField.setStyle(NO_WARNING_COLOR);
@@ -156,6 +182,7 @@ public class FormulaireController {
         description = new SimpleStringProperty(descriptionField.getText());
         if (description.getValue().isEmpty()) {
             descriptionField.setStyle(WARNING_COLOR);
+            shDescripction.shake(descriptionField);
             reboot = true;
         } else
             descriptionField.setStyle(NO_WARNING_COLOR);
@@ -165,6 +192,7 @@ public class FormulaireController {
             posteAnneeDropdown.setStyle(NO_WARNING_COLOR);
         } catch (Exception e) {
             posteAnneeDropdown.setStyle(WARNING_COLOR);
+            shPoste.shake(posteAnneeDropdown);
             reboot = true;
         }
         //--------//
@@ -173,6 +201,7 @@ public class FormulaireController {
             typeDropdown.setStyle(NO_WARNING_COLOR);
         } catch (Exception e) {
             typeDropdown.setStyle(WARNING_COLOR);
+            shType.shake(typeDropdown);
             reboot = true;
         }
         //--------//
@@ -203,5 +232,4 @@ public class FormulaireController {
         }
         return !reboot;
     }
-
 }
