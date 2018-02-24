@@ -102,11 +102,7 @@ public class HistoryController {
         });
         researchButton.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) {
-                try {
-                    research();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                research();
             }
         });
         table.setRowFactory(tv -> {
@@ -149,7 +145,7 @@ public class HistoryController {
         });
     }
 
-    private void research() throws IOException {
+    private void research() {
         StringProperty researched = new SimpleStringProperty(researchField.getText());
         if (!researched.getValue().isEmpty()) {
             String stringResearched = researched.getValue().toLowerCase();

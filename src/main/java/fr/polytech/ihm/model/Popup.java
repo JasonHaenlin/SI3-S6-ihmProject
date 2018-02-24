@@ -1,11 +1,13 @@
 package fr.polytech.ihm.model;
 
-import javafx.geometry.Pos;
-import javafx.scene.*;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
-import javafx.stage.*;
 import javafx.beans.property.BooleanProperty;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class Popup {
 
@@ -14,10 +16,11 @@ public class Popup {
 
         popupwindow.initModality(Modality.APPLICATION_MODAL);
         popupwindow.setTitle("Suppression ?");
-        Label label1 = new Label("Voulez-vous supprimer cette Incident ?");
+        Label label1 = new Label("Voulez-vous supprimer cet incident ?");
 
-        Button cancel = new Button("Annul\u00E9");
-        Button ok = new Button("Confirm\u00E9");
+        Button ok = new Button("Confirmer");
+        Button cancel = new Button("Annuler");
+
 
         cancel.setOnAction(e -> {
             popupwindow.close();
@@ -30,7 +33,7 @@ public class Popup {
         });
 
         VBox layout = new VBox(10);
-        layout.getChildren().addAll(label1, cancel, ok);
+        layout.getChildren().addAll(label1, ok, cancel);
         layout.setAlignment(Pos.CENTER);
         layout.setStyle("-fx-background-color: #9cc4e4;");
         Scene scene1 = new Scene(layout, 250, 200);
