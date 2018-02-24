@@ -1,33 +1,36 @@
 package fr.polytech.ihm.controller;
 
-import java.io.IOException;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.polytech.ihm.model.Incident;
 import fr.polytech.ihm.model.IncidentManager;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Control;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.util.List;
 
 public class HistoryController {
 
     @FXML
     private ImageView recherch;
+
+    @FXML
+    private Button researchButton;
+
+    @FXML
+    private TextField researchField;
 
     @FXML
     private TableView<Incident> table;
@@ -97,6 +100,15 @@ public class HistoryController {
                 }
             }
         });
+        researchButton.setOnMouseClicked(event -> {
+            if (event.getButton() == MouseButton.PRIMARY) {
+                try {
+                    research();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         table.setRowFactory(tv -> {
             TableRow<Incident> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
@@ -135,5 +147,29 @@ public class HistoryController {
             text.textProperty().bind(cell.itemProperty());
             return cell;
         });
+    }
+
+    private void research() throws IOException {
+        StringProperty researched = new SimpleStringProperty(researchField.getText());
+        if (!researched.getValue().isEmpty()) {
+            String stringResearched = researched.getValue().toLowerCase();
+            List<Incident> incidentList = IncidentManager.getIncidentList();
+            ObservableList<Incident> incidentObservableList = FXCollections.observableArrayList();
+            for (Incident i : incidentList) {
+                if (i.getDescription().toLowerCase().contains(stringResearched)
+                        || i.getNom().toLowerCase().contains(stringResearched)
+                        || i.getLocation().toLowerCase().contains(stringResearched)
+                        || i.getPosteAnnee().toLowerCase().contains(stringResearched)
+                        || i.getPrenom().toLowerCase().contains(stringResearched)
+                        || i.getTitre().toLowerCase().contains(stringResearched)
+                        || i.getImportance().toLowerCase().contains(stringResearched)
+                        || i.getType().toLowerCase().contains(stringResearched)) {
+                    incidentObservableList.add(i);
+                }
+            }
+            table.setItems(incidentObservableList);
+            table.refresh();
+        }
+
     }
 }

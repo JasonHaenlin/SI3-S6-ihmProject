@@ -29,7 +29,7 @@
       -fx-background-image: url(/images/delete.png);
     }
 
-#loupeButton {
+#researchButton {
   -fx-background-size: 60%;
   -fx-background-repeat: no-repeat;
   -fx-background-position: center;
