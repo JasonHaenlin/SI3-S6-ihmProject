@@ -28,7 +28,7 @@
                 <VBox prefWidth="130.0">
                     <children>
                         <Label id="label" styleClass="ApplicationForm" text="Nom*" />
-                        <TextField id="TextField" fx:id="nomField" promptText="nom...." styleClass="ApplicationForm" />
+                        <TextField id="TextField" fx:id="nomField" promptText="nom...." styleClass="form" />
                     </children>
                     <FlowPane.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
@@ -37,25 +37,25 @@
                 <VBox prefWidth="130.0">
                     <children>
                         <Label id="label" styleClass="ApplicationForm" text="Prénom*" />
-                        <TextField id="TextField" fx:id="prenomField" promptText="prénom..." styleClass="ApplicationForm" />
+                        <TextField id="TextField" fx:id="prenomField" promptText="prénom..." styleClass="form" />
                     </children>
                     <FlowPane.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                     </FlowPane.margin>
                 </VBox>
-                <VBox prefWidth="130.0">
+                <VBox prefHeight="42.0" prefWidth="171.0">
                     <children>
                         <Label id="label" fx:id="posteLabel" styleClass="ApplicationForm" text="Profession*" />
-                        <ComboBox id="TextField" fx:id="posteAnneeDropdown" prefWidth="150.0" promptText="choisir...." styleClass="ApplicationForm" />
+                        <ComboBox id="TextField" fx:id="posteAnneeDropdown" prefHeight="25.0" prefWidth="171.0" promptText="choisir...." styleClass="bobox" />
                     </children>
                     <FlowPane.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                     </FlowPane.margin>
                 </VBox>
-                <VBox prefWidth="130.0">
+                <VBox prefHeight="42.0" prefWidth="186.0">
                     <children>
                         <Label id="label" styleClass="ApplicationForm" text="Type d'incident*" />
-                        <ComboBox id="TextField" fx:id="typeDropdown" prefWidth="150.0" promptText="choisir..." styleClass="ApplicationForm" />
+                        <ComboBox id="TextField" fx:id="typeDropdown" prefHeight="25.0" prefWidth="181.0" promptText="choisir..." styleClass="bobox" />
                     </children>
                     <FlowPane.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
@@ -64,7 +64,7 @@
                 <VBox prefHeight="42.0" prefWidth="408.0">
                     <children>
                         <Label id="label" styleClass="ApplicationForm" text="Objet de l'incident*" />
-                        <TextField id="TextField" fx:id="titreField" promptText="objet..." styleClass="ApplicationForm" />
+                        <TextField id="TextField" fx:id="titreField" promptText="objet..." styleClass="form" />
                     </children>
                     <FlowPane.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
@@ -73,7 +73,7 @@
                 <VBox prefWidth="150.0">
                     <children>
                         <Label id="label" styleClass="ApplicationForm" text="Date" />
-                        <DatePicker id="TextField" fx:id="dateField" styleClass="ApplicationForm" />
+                        <DatePicker id="TextField" fx:id="dateField" styleClass="bobox" />
                     </children>
                     <FlowPane.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
@@ -90,7 +90,7 @@
                                 <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                             </VBox.margin>
                         </Label>
-                        <TextArea fx:id="descriptionField" prefHeight="200.0" prefWidth="200.0" promptText="Description..." scrollLeft="1.0" wrapText="true">
+                        <TextArea fx:id="descriptionField" prefHeight="200.0" prefWidth="200.0" promptText="Description..." scrollLeft="1.0" styleClass="form" wrapText="true">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" />
                      </VBox.margin></TextArea>
@@ -103,7 +103,7 @@
                 <VBox prefHeight="135.0" prefWidth="150.0">
                     <children>
                         <Label id="label" styleClass="ApplicationForm" text="Gravité de l'incident" />
-                        <ComboBox id="TextField" fx:id="importanceDropdown" prefWidth="150.0" promptText="choisir..." styleClass="ApplicationForm" />
+                        <ComboBox id="TextField" fx:id="importanceDropdown" prefWidth="150.0" promptText="choisir..." styleClass="bobox" />
                     </children>
                     <FlowPane.margin>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
@@ -142,17 +142,17 @@
                                 </VBox>
                                 <VBox prefHeight="134.0" prefWidth="243.0">
                                     <children>
-                                        <TextField id="TextField" fx:id="batimentField" prefHeight="39.0" prefWidth="232.0" styleClass="ApplicationForm">
+                                        <TextField id="TextField" fx:id="batimentField" prefHeight="39.0" prefWidth="232.0" styleClass="form">
                                             <VBox.margin>
                                                 <Insets top="4.0" />
                                             </VBox.margin>
                                         </TextField>
-                                        <TextField id="TextField" fx:id="salleField" prefHeight="39.0" prefWidth="269.0" styleClass="ApplicationForm">
+                                        <TextField id="TextField" fx:id="salleField" prefHeight="39.0" prefWidth="269.0" styleClass="form">
                                             <VBox.margin>
                                                 <Insets top="4.0" />
                                             </VBox.margin>
                                         </TextField>
-                                        <TextField id="TextField" fx:id="detailsField" prefHeight="39.0" prefWidth="248.0" styleClass="ApplicationForm">
+                                        <TextField id="TextField" fx:id="detailsField" prefHeight="39.0" prefWidth="248.0" styleClass="form">
                                             <VBox.margin>
                                                 <Insets top="4.0" />
                                             </VBox.margin>

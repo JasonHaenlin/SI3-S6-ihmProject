@@ -23,11 +23,11 @@
 }
 
 #deleteButton {
-    -fx-background-size: 60%;
-      -fx-background-repeat: no-repeat;
-      -fx-background-position: center;
-      -fx-background-image: url(/images/delete.png);
-    }
+  -fx-background-size: 60%;
+  -fx-background-repeat: no-repeat;
+  -fx-background-position: center;
+  -fx-background-image: url(/images/delete.png);
+}
 
 #researchButton {
   -fx-background-size: 60%;
@@ -40,3 +40,19 @@
   -fx-background-image: url(/images/valider.png);
 }
 
+#background {
+  /*-fx-background-color: #000000;*/
+  -fx-image-rendering: optimizeQuality;
+  -fx-background-color: #e9f2f9;
+}
+
+/* .combo-box .cell {
+  -fx-text-fill: blue;
+  -fx-background-color: #e9f2f9;
+  -fx-font: 12px "Arial";
+} */
+
+.bobox,
+.form {
+  -fx-background-color: #e7e8ec;
+}
