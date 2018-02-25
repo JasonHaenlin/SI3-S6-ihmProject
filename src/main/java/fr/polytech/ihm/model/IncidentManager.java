@@ -7,9 +7,19 @@ import java.util.List;
 public class IncidentManager {
 
     private static ArrayList<Incident> incidentList = new ArrayList<>();
+    private static Incident tmpIncident = null; //Incident entré dans le formulaire mais pas validé
 
     public static void addIncident(Incident incident) {
-        incidentList.add(incident);
+        tmpIncident = incident;
+    }
+
+    public static void saveTmpIncident(){
+        incidentList.add(tmpIncident);
+        tmpIncident = null;
+    }
+
+    public static Incident getTmpIncident() {
+        return tmpIncident;
     }
 
     public static List<Incident> getIncidentList() {

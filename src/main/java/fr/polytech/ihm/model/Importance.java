@@ -26,4 +26,11 @@ public enum Importance {
         return importance.getValue();
     }
 
+    public static Importance getByName(String name){
+        for(Importance value : values()){
+            if(value.importance.getValue().equals(name))
+                return value;
+        }
+        return null;
+    }
 }

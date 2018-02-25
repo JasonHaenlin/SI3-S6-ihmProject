@@ -74,7 +74,7 @@ public class ValidationWindow {
 
         Incident incidents;
 
-        incidents = IncidentManager.getIncidentList().get(IncidentManager.getIncidentList().size() - 1);
+        incidents = IncidentManager.getTmpIncident();
 
         geo.setText(incidents.getLocation());
         title.setText(incidents.getTitre());
@@ -89,6 +89,7 @@ public class ValidationWindow {
         log.debug("Validation page");
         validButton.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) {
+                IncidentManager.saveTmpIncident();
                 try {
                     IncidentManager.saveIncidentList();
                 } catch (IOException e1) {
@@ -112,7 +113,6 @@ public class ValidationWindow {
         });
         returnButton.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) {
-                IncidentManager.removeLastIncident();
                 String fxmlFile = "/fxml/applicationForm.fxml";
                 FXMLLoader loader = new FXMLLoader();
                 log.debug("Go back");
@@ -123,6 +123,7 @@ public class ValidationWindow {
                     Scene scene = new Scene(rootNode);
                     stage.setScene(scene);
                     stage.show();
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

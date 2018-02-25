@@ -31,4 +31,12 @@ public enum Type {
     public String toString() {
         return type.getValue();
     }
+
+    public static Type getByName(String name){
+        for(Type value : values()){
+            if(value.type.getValue().equals(name))
+                return value;
+        }
+        return null;
+    }
 }

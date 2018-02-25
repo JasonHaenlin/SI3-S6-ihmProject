@@ -32,4 +32,12 @@ public enum PosteAnnee {
         return posteannee.getValue();
     }
 
+    public static PosteAnnee getByName(String name){
+        for(PosteAnnee value : values()){
+            if(value.posteannee.getValue().equals(name))
+                return value;
+        }
+        return null;
+    }
+
 }

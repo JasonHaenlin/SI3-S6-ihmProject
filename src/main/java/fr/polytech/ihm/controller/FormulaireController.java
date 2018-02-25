@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
 public class FormulaireController {
@@ -122,6 +123,26 @@ public class FormulaireController {
                 }
             }
         });
+
+        Incident tmpIncident = IncidentManager.getTmpIncident();
+        if(tmpIncident != null){
+            nomField.setText(tmpIncident.nomProperty().getValue());
+            prenomField.setText(tmpIncident.prenomProperty().getValue());
+            titreField.setText(tmpIncident.titreProperty().getValue());
+            descriptionField.setText(tmpIncident.descriptionProperty().getValue());
+            salleField.setText(tmpIncident.salleProperty().getValue());
+            batimentField.setText(tmpIncident.batimentProperty().getValue());
+            detailsField.setText(tmpIncident.detailsProperty().getValue());
+
+            posteAnneeDropdown.setValue(PosteAnnee.getByName(tmpIncident.posteAnneeProperty().getValue()));
+            importanceDropdown.setValue(Importance.getByName(tmpIncident.importanceProperty().getValue()));
+            typeDropdown.setValue(Type.getByName(tmpIncident.typeProperty().getValue()));
+
+            System.out.println(tmpIncident.dateProperty().getValue());
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-MM-yyyy");
+            dateField.setValue(LocalDate.parse(tmpIncident.dateProperty().getValue(), formatter));
+
+        }
 
     }
 
