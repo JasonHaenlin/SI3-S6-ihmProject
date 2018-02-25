@@ -5,6 +5,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -33,7 +34,10 @@ public class Popup {
         });
 
         VBox layout = new VBox(10);
-        layout.getChildren().addAll(label1, ok, cancel);
+        HBox buttons = new HBox(10);
+        buttons.getChildren().addAll(ok,cancel);
+        buttons.setAlignment(Pos.CENTER);
+        layout.getChildren().addAll(label1,buttons);
         layout.setAlignment(Pos.CENTER);
         layout.setStyle("-fx-background-color: #9cc4e4;");
         Scene scene1 = new Scene(layout, 250, 200);
