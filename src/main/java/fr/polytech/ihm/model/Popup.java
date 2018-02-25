@@ -39,7 +39,7 @@ public class Popup {
         buttons.setAlignment(Pos.CENTER);
         layout.getChildren().addAll(label1,buttons);
         layout.setAlignment(Pos.CENTER);
-        layout.setStyle("-fx-background-color: #9cc4e4;");
+        layout.setStyle("-fx-background-color: #E9F2F9;");
         Scene scene1 = new Scene(layout, 250, 200);
         popupwindow.setScene(scene1);
         popupwindow.showAndWait();
