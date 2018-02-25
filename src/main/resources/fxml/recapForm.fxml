@@ -163,7 +163,7 @@
                   </HBox>
                </children>
             </FlowPane>
-            <Label fx:id="descriptionLabel" styleClass="ValidationForm" text="description">
+            <Label fx:id="descriptionLabel" styleClass="ValidationForm" text="Description">
                <font>
                   <Font size="15.0" />
                </font>

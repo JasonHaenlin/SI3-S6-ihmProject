@@ -1,34 +1,23 @@
 package fr.polytech.ihm.controller;
 
-import java.io.IOException;
-import java.time.LocalDate;
-import java.util.Calendar;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.polytech.ihm.MainApp;
 import fr.polytech.ihm.effect.Shaker;
-import fr.polytech.ihm.model.Importance;
-import fr.polytech.ihm.model.Incident;
-import fr.polytech.ihm.model.IncidentManager;
-import fr.polytech.ihm.model.PosteAnnee;
-import fr.polytech.ihm.model.Type;
+import fr.polytech.ihm.model.*;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Calendar;
 
 public class FormulaireController {
     private static final Logger log = LoggerFactory.getLogger(MainApp.class);
@@ -205,29 +194,33 @@ public class FormulaireController {
             reboot = true;
         }
         //--------//
+        int jour;
+        int mois;
+        int annee;
         try {
-            dateString = new SimpleStringProperty(date.toString());
+            jour = date.getDayOfMonth();
+            mois = date.getMonthValue();
+            annee = date.getYear();
         } catch (NullPointerException e) {
-            dateString = new SimpleStringProperty(cal.getTime().toString());
+            jour = cal.get(Calendar.DAY_OF_MONTH);
+            mois = cal.get(Calendar.MONTH) + 1;
+            annee = cal.get(Calendar.YEAR);
         }
+        dateString = new SimpleStringProperty(jour + "-" + (mois < 9 ? "0" + mois : mois) + "-" + (annee < 9 ? "0" + annee : annee));
         try {
             importance = new SimpleStringProperty(importanceDropdown.getValue().toString());
         } catch (NullPointerException e) {
             importance = new SimpleStringProperty(Importance.MODEREE.toString());
         }
-        log.debug("location start");
         salle = new SimpleStringProperty(salleField.getText());
         batiment = new SimpleStringProperty(batimentField.getText());
         details = new SimpleStringProperty(detailsField.getText());
-        log.debug("location end");
         //--------//
         if (!reboot) {
             Incident incident = new Incident(nom, prenom, posteAnnee, type, titre, dateString, description, importance,
                     batiment, salle, details);
             IncidentManager.addIncident(incident);
         } else {
-            log.error("required field needed");
-            log.debug("CHAMP EN ROUGE");
             champs.setVisible(true);
         }
         return !reboot;
