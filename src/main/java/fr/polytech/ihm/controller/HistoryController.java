@@ -12,7 +12,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
@@ -25,42 +27,32 @@ public class HistoryController {
 
     @FXML
     private ImageView recherch;
-
     @FXML
     private Button researchButton;
-
     @FXML
     private TextField researchField;
-
     @FXML
     private TableView<Incident> table;
-
     @FXML
     private TableColumn<Incident, String> titreCol;
-
     @FXML
     private TableColumn<Incident, String> typeCol;
-
     @FXML
     private TableColumn<Incident, String> importanceCol;
-
     @FXML
     private TableColumn<Incident, String> dateCol;
-
     @FXML
     private TableColumn<Incident, String> localisationCol;
-
     @FXML
     private TableColumn<Incident, String> nomCol;
-
     @FXML
     private TableColumn<Incident, String> prenomCol;
-
     @FXML
     private TableColumn<Incident, String> posteCol;
-
     @FXML
     private Button retour;
+    @FXML
+    private VBox historyBox;
 
     private static final Logger log = LoggerFactory.getLogger(HistoryController.class);
 
@@ -100,11 +92,17 @@ public class HistoryController {
                 }
             }
         });
+
+        historyBox.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) research();
+        });
+
         researchButton.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) {
                 research();
             }
         });
+
         table.setRowFactory(tv -> {
             TableRow<Incident> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
@@ -159,12 +157,16 @@ public class HistoryController {
                         || i.getPrenom().toLowerCase().contains(stringResearched)
                         || i.getTitre().toLowerCase().contains(stringResearched)
                         || i.getImportance().toLowerCase().contains(stringResearched)
-                        || i.getType().toLowerCase().contains(stringResearched)) {
+                        || i.getType().toLowerCase().contains(stringResearched)
+                        || i.getDate().toLowerCase().contains(stringResearched)) {
                     incidentObservableList.add(i);
                 }
             }
             table.setItems(incidentObservableList);
             table.refresh();
+        } else {
+            ObservableList<Incident> incidents = FXCollections.observableArrayList(IncidentManager.getIncidentList());
+            table.setItems(incidents);
         }
 
     }

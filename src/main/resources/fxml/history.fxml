@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="735.0" stylesheets="/styles/global.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.HistoryController">
+<VBox fx:id="historyBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="735.0" stylesheets="/styles/global.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.HistoryController">
     <children>
         <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="30.0" prefWidth="645.0" styleClass="titleBar" stylesheets="/styles/global.css">
             <children>
