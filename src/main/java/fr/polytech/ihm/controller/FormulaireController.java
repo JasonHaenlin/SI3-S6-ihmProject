@@ -125,7 +125,7 @@ public class FormulaireController {
         });
 
         Incident tmpIncident = IncidentManager.getTmpIncident();
-        if(tmpIncident != null){
+        if (tmpIncident != null) {
             nomField.setText(tmpIncident.nomProperty().getValue());
             prenomField.setText(tmpIncident.prenomProperty().getValue());
             titreField.setText(tmpIncident.titreProperty().getValue());
@@ -146,6 +146,11 @@ public class FormulaireController {
 
     }
 
+    /**
+     * Method used to check if the form is correct, meaning if all the required fields are valids
+     *
+     * @return true if the form is valid, false otherwise
+     */
     private boolean submitFormOk() {
 
         boolean reboot = false;

@@ -131,6 +131,11 @@ public class HistoryController {
         });
     }
 
+    /**
+     * Method used to make the table with the incidents look better
+     *
+     * @param col a list of incidents
+     */
     private void wrapLines(TableColumn<Incident, String> col) {
         col.setCellFactory(tc -> {
             TableCell<Incident, String> cell = new TableCell<>();
@@ -143,6 +148,9 @@ public class HistoryController {
         });
     }
 
+    /**
+     * Method used to show in the table only the incidents containing the researched string
+     */
     private void research() {
         StringProperty researched = new SimpleStringProperty(researchField.getText());
         if (!researched.getValue().isEmpty()) {

@@ -1,18 +1,13 @@
 package fr.polytech.ihm.controller;
 
-import java.io.IOException;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.polytech.ihm.model.Incident;
 import fr.polytech.ihm.model.IncidentManager;
 import fr.polytech.ihm.model.Popup;
-import javafx.fxml.FXML;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,6 +17,10 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
 
 public class RecapWindow {
 
@@ -82,6 +81,11 @@ public class RecapWindow {
     public void initialize() {
     }
 
+    /**
+     * Method used to fill the recap window with the data of the incident
+     *
+     * @param row the selected incident
+     */
     public void initData(TableRow<Incident> row) {
         incidents = row.getItem();
 
@@ -154,11 +158,15 @@ public class RecapWindow {
         });
     }
 
+    /**
+     * Method to show a popup window before deleting an incident
+     *
+     * @return true if everything went ok, false otherwise
+     */
     private boolean removeAsk() {
         Popup.display(validation);
         if (validation.get()) {
             IncidentManager.deleteIncident(incidents);
-            log.debug("NE REGARDE PAS ICI ");
             log.debug(IncidentManager.getIncidentList().toString());
             try {
                 IncidentManager.saveIncidentList();
